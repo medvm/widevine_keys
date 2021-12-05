@@ -246,7 +246,7 @@ class Cdm:
             self.logger.debug(line)
         self.logger.info("license request created")
         self.logger.debug("license request b64: {}".format(base64.b64encode(license_request.SerializeToString())))
-        print(f'{chr(10)} license_request^ {type(license_request)}')
+        print(f'{chr(10)} license_request^ {license_request}')
         return license_request.SerializeToString()
 
     def provide_license(self, session_id, license_b64):

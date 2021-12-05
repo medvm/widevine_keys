@@ -6,6 +6,7 @@
 
 import base64, requests, sys, xmltodict
 import headers
+import cookies
 from cdm import cdm, deviceconfig
 from base64 import b64encode
 from getPSSH import get_pssh
