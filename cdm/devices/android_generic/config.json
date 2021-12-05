@@ -1,0 +1,20 @@
+{
+    "token": "token.bin",
+    "client_info":
+    {
+        "company_name": "motorola",
+        "model_name": "Nexus 6",
+        "architecture_name": "armeabi-v7a",
+        "device_name": "shamu",
+        "product_name": "shamu",
+        "build_info": "google/shamu/shamu:5.1.1/LMY48M/2167285:user/release-keys",
+        "device_id": "TU1JX0VGRkYwRkU2NUQ5OAAAAAAAAAAAAAAAAAAAAAA=",
+        "os_version":  "5.1.1"
+    },
+    "capabilities":
+    {
+        "session_token": 1,
+        "max_hdcp_version": "HDCP_V2_2",
+        "oem_crypto_api_version": 9
+    }
+}
