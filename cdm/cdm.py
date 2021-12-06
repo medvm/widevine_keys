@@ -19,7 +19,7 @@ from Cryptodome.Signature import pss
 from Cryptodome.Util import Padding
 import logging
 import hashlib
-
+logging.basicConfig(level=logging.DEBUG)
 class Cdm:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -171,6 +171,7 @@ class Cdm:
         else:
            license_type = wv_proto2.LicenseType.Value('DEFAULT')
         license_request.Msg.ContentId.CencId.LicenseType = license_type
+        license_request.Msg.puid.puid = 339572866
         license_request.Msg.ContentId.CencId.RequestId = session_id
         license_request.Msg.Type = wv_proto2.LicenseRequest.RequestType.Value('NEW')
         license_request.Msg.RequestTime = int(time.time())

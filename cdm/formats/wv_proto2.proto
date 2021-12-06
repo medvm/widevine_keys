@@ -464,3 +464,7 @@ message FileHashes {
    optional bytes signer = 1;
    repeated Signature signatures = 2;
 }
+
+message puid {
+   optional int32 puid = 1;
+}
