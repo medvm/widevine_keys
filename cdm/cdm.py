@@ -18,7 +18,7 @@ from Cryptodome.PublicKey import RSA
 from Cryptodome.Signature import pss
 from Cryptodome.Util import Padding
 import logging
-logging.basicConfig(level=logging.DEBUG)
+import hashlib
 
 class Cdm:
     def __init__(self):
@@ -238,6 +238,10 @@ class Cdm:
         signature = pss.new(key).sign(hash)
 
         license_request.Signature = signature
+        global hash_object
+        hash_object = hash.hexdigest()
+
+        print(f'{chr(10)} hash_object^ {hash.hexdigest()}')
 
         session.license_request = license_request
 
@@ -246,7 +250,7 @@ class Cdm:
             self.logger.debug(line)
         self.logger.info("license request created")
         self.logger.debug("license request b64: {}".format(base64.b64encode(license_request.SerializeToString())))
-        print(f'{chr(10)} license_request^ {license_request}')
+        print(f'{chr(10)} license_request^ {base64.b64encode(license_request.SerializeToString())}')
         return license_request.SerializeToString()
 
     def provide_license(self, session_id, license_b64):
