@@ -137,7 +137,8 @@ class Cdm:
         if session_id not in self.sessions:
             self.logger.error("session ID does not exist")
             return 1
-
+        global sessionIdTest
+        sessionIdTest = session_id
         session = self.sessions[session_id]
 
         # raw pssh will be treated as bytes and not parsed
@@ -171,16 +172,10 @@ class Cdm:
         else:
            license_type = wv_proto2.LicenseType.Value('DEFAULT')
         license_request.Msg.ContentId.CencId.LicenseType = license_type
-        license_request.Msg.puid.puid = 339572866
         license_request.Msg.ContentId.CencId.RequestId = session_id
         license_request.Msg.Type = wv_proto2.LicenseRequest.RequestType.Value('NEW')
         license_request.Msg.RequestTime = int(time.time())
         license_request.Msg.ProtocolVersion = wv_proto2.ProtocolVersion.Value('CURRENT')
-
-# added to meet the requirements of kinopoisk's proxy
-
-        
-
 
         if session.device_config.send_key_control_nonce:
             license_request.Msg.KeyControlNonce = random.randrange(1, 2**31)
@@ -237,11 +232,26 @@ class Cdm:
 
         hash = SHA1.new(license_request.Msg.SerializeToString())
         signature = pss.new(key).sign(hash)
+        
+        # added to meet the requirements of kinopoisk's proxy
+        # license_request.Msg.puid = '339572866'
+        # license_request.Msg.watchSessionId = session_id
+        # license_request.Msg.contentId = '4315082489d87677b21f7c83593fcb73'
+        # license_request.Msg.contentTypeId = '21'
+        # license_request.Msg.serviceName = "ott-kp"
+        # license_request.Msg.productId = '2'
+        # license_request.Msg.monetizationModel = "SVOD"
+        # license_request.Msg.expirationTimestamp = '1638858156'
+        # license_request.Msg.verificationRequired = "true"
+        # license_request.Msg.signature = str(hash.hexdigest())
+        # license_request.Msg.version = "V4"
 
-        license_request.Signature = signature
+        # license_request.Signature = signature
         global hash_object
+        global hash2test 
+        hash2test  = hash
         hash_object = hash.hexdigest()
-
+        license_request.Signature = signature
         print(f'{chr(10)} hash_object^ {hash.hexdigest()}')
 
         session.license_request = license_request

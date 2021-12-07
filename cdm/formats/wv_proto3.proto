@@ -366,7 +366,7 @@ message SignedLicenseRequest {
   MessageType Type = 1; // has in incorrect overlap with License_KeyContainer_SecurityLevel
   LicenseRequest Msg = 2; // this has to be casted dynamically, to LicenseRequest, License or LicenseError (? unconfirmed), for Request, no other fields but Type need to be present
                  // for SERVICE_CERTIFICATE, only Type and Msg are present, and it's just a DeviceCertificate with CertificateType set to SERVICE
-  bytes Signature = 3; // might be different type of signatures (ex. RSA vs AES CMAC(??), unconfirmed for now)
+  string Signature = 3; // might be different type of signatures (ex. RSA vs AES CMAC(??), unconfirmed for now)
   bytes SessionKey = 4; // often RSA wrapped for licenses
   RemoteAttestation RemoteAttestation = 5;
 }

@@ -1,5 +1,48 @@
 syntax = "proto2";
 
+
+// This message is copied from google's docs, not reversed:
+message WidevineCencHeader {
+    enum Algorithm {
+        UNENCRYPTED = 0;
+        AESCTR = 1;
+    };
+    optional Algorithm algorithm = 1;
+    repeated bytes key_id = 2;
+
+    // Content provider name.
+    optional string provider = 3;
+
+    // A content identifier, specified by content provider.
+    optional bytes content_id = 4;
+
+    // Track type. Acceptable values are SD, HD and AUDIO. Used to
+    // differentiate content keys used by an asset.
+    optional string track_type_deprecated = 5;
+
+    // The name of a registered policy to be used for this asset.
+    optional string policy = 6;
+
+    // Crypto period index, for media using key rotation.
+    optional uint32 crypto_period_index = 7;
+
+    // Optional protected context for group content. The grouped_license is a
+    // serialized SignedMessage.
+    optional bytes grouped_license = 8;
+
+    // Protection scheme identifying the encryption algorithm.
+    // Represented as one of the following 4CC values:
+    // 'cenc' (AESCTR), 'cbc1' (AESCBC),
+    // 'cens' (AESCTR subsample), 'cbcs' (AESCBC subsample).
+    optional uint32 protection_scheme = 9;
+
+    // Optional. For media using key rotation, this represents the duration
+    // of each crypto period in seconds.
+    optional uint32 crypto_period_seconds = 10;
+}
+
+
+
 // from x86 (partial), most of it from the ARM version:
 message ClientIdentification {
     enum TokenType {
@@ -220,6 +263,17 @@ message LicenseRequest {
     optional ProtocolVersion ProtocolVersion = 6; // lacking symbols for this
     optional uint32 KeyControlNonce = 7;
     optional EncryptedClientIdentification EncryptedClientId = 8;
+    optional string version = 9;
+    optional string puid = 10;
+    optional string watchSessionId = 11;
+    optional string contentId = 12;
+    optional string contentTypeId = 13;
+    optional string serviceName = 14;
+    optional string productId = 15;
+    optional string monetizationModel = 16;
+    optional string expirationTimestamp = 17;
+    optional string verificationRequired = 18;
+    optional string signature = 19;
 }
 
 // raw pssh hack
@@ -342,47 +396,6 @@ message SignedMessage {
 
 
 
-// This message is copied from google's docs, not reversed:
-message WidevineCencHeader {
-    enum Algorithm {
-        UNENCRYPTED = 0;
-        AESCTR = 1;
-    };
-    optional Algorithm algorithm = 1;
-    repeated bytes key_id = 2;
-
-    // Content provider name.
-    optional string provider = 3;
-
-    // A content identifier, specified by content provider.
-    optional bytes content_id = 4;
-
-    // Track type. Acceptable values are SD, HD and AUDIO. Used to
-    // differentiate content keys used by an asset.
-    optional string track_type_deprecated = 5;
-
-    // The name of a registered policy to be used for this asset.
-    optional string policy = 6;
-
-    // Crypto period index, for media using key rotation.
-    optional uint32 crypto_period_index = 7;
-
-    // Optional protected context for group content. The grouped_license is a
-    // serialized SignedMessage.
-    optional bytes grouped_license = 8;
-
-    // Protection scheme identifying the encryption algorithm.
-    // Represented as one of the following 4CC values:
-    // 'cenc' (AESCTR), 'cbc1' (AESCBC),
-    // 'cens' (AESCTR subsample), 'cbcs' (AESCBC subsample).
-    optional uint32 protection_scheme = 9;
-
-    // Optional. For media using key rotation, this represents the duration
-    // of each crypto period in seconds.
-    optional uint32 crypto_period_seconds = 10;
-}
-
-
 // remove these when using it outside of protoc:
 
 // from here on, it's just for testing, these messages don't exist in the binaries, I'm adding them to avoid detecting type programmatically
@@ -465,6 +478,3 @@ message FileHashes {
    repeated Signature signatures = 2;
 }
 
-message puid {
-   optional int32 puid = 1;
-}

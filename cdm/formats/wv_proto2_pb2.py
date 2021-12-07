@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x63\x64m/formats/wv_proto2.proto\"\xe7\x05\n\x14\x43lientIdentification\x12-\n\x04Type\x18\x01 \x02(\x0e\x32\x1f.ClientIdentification.TokenType\x12\'\n\x05Token\x18\x02 \x01(\x0b\x32\x18.SignedDeviceCertificate\x12\x33\n\nClientInfo\x18\x03 \x03(\x0b\x32\x1f.ClientIdentification.NameValue\x12\x1b\n\x13ProviderClientToken\x18\x04 \x01(\x0c\x12\x16\n\x0eLicenseCounter\x18\x05 \x01(\r\x12\x45\n\x13_ClientCapabilities\x18\x06 \x01(\x0b\x32(.ClientIdentification.ClientCapabilities\x12 \n\x0b_FileHashes\x18\x07 \x01(\x0b\x32\x0b.FileHashes\x1a(\n\tNameValue\x12\x0c\n\x04Name\x18\x01 \x02(\t\x12\r\n\x05Value\x18\x02 \x02(\t\x1a\xa4\x02\n\x12\x43lientCapabilities\x12\x13\n\x0b\x43lientToken\x18\x01 \x01(\r\x12\x14\n\x0cSessionToken\x18\x02 \x01(\r\x12\"\n\x1aVideoResolutionConstraints\x18\x03 \x01(\r\x12L\n\x0eMaxHdcpVersion\x18\x04 \x01(\x0e\x32\x34.ClientIdentification.ClientCapabilities.HdcpVersion\x12\x1b\n\x13OemCryptoApiVersion\x18\x05 \x01(\r\"T\n\x0bHdcpVersion\x12\r\n\tHDCP_NONE\x10\x00\x12\x0b\n\x07HDCP_V1\x10\x01\x12\x0b\n\x07HDCP_V2\x10\x02\x12\r\n\tHDCP_V2_1\x10\x03\x12\r\n\tHDCP_V2_2\x10\x04\"S\n\tTokenType\x12\n\n\x06KEYBOX\x10\x00\x12\x16\n\x12\x44\x45VICE_CERTIFICATE\x10\x01\x12\"\n\x1eREMOTE_ATTESTATION_CERTIFICATE\x10\x02\"\x9b\x02\n\x11\x44\x65viceCertificate\x12\x30\n\x04Type\x18\x01 \x02(\x0e\x32\".DeviceCertificate.CertificateType\x12\x14\n\x0cSerialNumber\x18\x02 \x01(\x0c\x12\x1b\n\x13\x43reationTimeSeconds\x18\x03 \x01(\r\x12\x11\n\tPublicKey\x18\x04 \x01(\x0c\x12\x10\n\x08SystemId\x18\x05 \x01(\r\x12\x1c\n\x14TestDeviceDeprecated\x18\x06 \x01(\r\x12\x11\n\tServiceId\x18\x07 \x01(\x0c\"K\n\x0f\x43\x65rtificateType\x12\x08\n\x04ROOT\x10\x00\x12\x10\n\x0cINTERMEDIATE\x10\x01\x12\x0f\n\x0bUSER_DEVICE\x10\x02\x12\x0b\n\x07SERVICE\x10\x03\"\xc4\x01\n\x17\x44\x65viceCertificateStatus\x12\x14\n\x0cSerialNumber\x18\x01 \x01(\x0c\x12:\n\x06Status\x18\x02 \x01(\x0e\x32*.DeviceCertificateStatus.CertificateStatus\x12*\n\nDeviceInfo\x18\x04 \x01(\x0b\x32\x16.ProvisionedDeviceInfo\"+\n\x11\x43\x65rtificateStatus\x12\t\n\x05VALID\x10\x00\x12\x0b\n\x07REVOKED\x10\x01\"o\n\x1b\x44\x65viceCertificateStatusList\x12\x1b\n\x13\x43reationTimeSeconds\x18\x01 \x01(\r\x12\x33\n\x11\x43\x65rtificateStatus\x18\x02 \x03(\x0b\x32\x18.DeviceCertificateStatus\"\xaf\x01\n\x1d\x45ncryptedClientIdentification\x12\x11\n\tServiceId\x18\x01 \x02(\t\x12&\n\x1eServiceCertificateSerialNumber\x18\x02 \x01(\x0c\x12\x19\n\x11\x45ncryptedClientId\x18\x03 \x02(\x0c\x12\x1b\n\x13\x45ncryptedClientIdIv\x18\x04 \x02(\x0c\x12\x1b\n\x13\x45ncryptedPrivacyKey\x18\x05 \x02(\x0c\"\x9c\x01\n\x15LicenseIdentification\x12\x11\n\tRequestId\x18\x01 \x01(\x0c\x12\x11\n\tSessionId\x18\x02 \x01(\x0c\x12\x12\n\nPurchaseId\x18\x03 \x01(\x0c\x12\x1a\n\x04Type\x18\x04 \x01(\x0e\x32\x0c.LicenseType\x12\x0f\n\x07Version\x18\x05 \x01(\r\x12\x1c\n\x14ProviderSessionToken\x18\x06 \x01(\x0c\"\xa1\x0e\n\x07License\x12\"\n\x02Id\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12 \n\x07_Policy\x18\x02 \x01(\x0b\x32\x0f.License.Policy\x12\"\n\x03Key\x18\x03 \x03(\x0b\x32\x15.License.KeyContainer\x12\x18\n\x10LicenseStartTime\x18\x04 \x01(\r\x12!\n\x19RemoteAttestationVerified\x18\x05 \x01(\r\x12\x1b\n\x13ProviderClientToken\x18\x06 \x01(\x0c\x12\x18\n\x10ProtectionScheme\x18\x07 \x01(\r\x1a\xbb\x02\n\x06Policy\x12\x0f\n\x07\x43\x61nPlay\x18\x01 \x01(\x08\x12\x12\n\nCanPersist\x18\x02 \x01(\x08\x12\x10\n\x08\x43\x61nRenew\x18\x03 \x01(\x08\x12\x1d\n\x15RentalDurationSeconds\x18\x04 \x01(\r\x12\x1f\n\x17PlaybackDurationSeconds\x18\x05 \x01(\r\x12\x1e\n\x16LicenseDurationSeconds\x18\x06 \x01(\r\x12&\n\x1eRenewalRecoveryDurationSeconds\x18\x07 \x01(\r\x12\x18\n\x10RenewalServerUrl\x18\x08 \x01(\t\x12\x1b\n\x13RenewalDelaySeconds\x18\t \x01(\r\x12#\n\x1bRenewalRetryIntervalSeconds\x18\n \x01(\r\x12\x16\n\x0eRenewWithUsage\x18\x0b \x01(\x08\x1a\xf9\t\n\x0cKeyContainer\x12\n\n\x02Id\x18\x01 \x01(\x0c\x12\n\n\x02Iv\x18\x02 \x01(\x0c\x12\x0b\n\x03Key\x18\x03 \x01(\x0c\x12+\n\x04Type\x18\x04 \x01(\x0e\x32\x1d.License.KeyContainer.KeyType\x12\x32\n\x05Level\x18\x05 \x01(\x0e\x32#.License.KeyContainer.SecurityLevel\x12\x42\n\x12RequiredProtection\x18\x06 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\x12\x43\n\x13RequestedProtection\x18\x07 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\x12\x35\n\x0b_KeyControl\x18\x08 \x01(\x0b\x32 .License.KeyContainer.KeyControl\x12[\n\x1e_OperatorSessionKeyPermissions\x18\t \x01(\x0b\x32\x33.License.KeyContainer.OperatorSessionKeyPermissions\x12S\n\x1aVideoResolutionConstraints\x18\n \x03(\x0b\x32/.License.KeyContainer.VideoResolutionConstraint\x1a\xdb\x01\n\x10OutputProtection\x12\x42\n\x04Hdcp\x18\x01 \x01(\x0e\x32\x34.ClientIdentification.ClientCapabilities.HdcpVersion\x12>\n\tCgmsFlags\x18\x02 \x01(\x0e\x32+.License.KeyContainer.OutputProtection.CGMS\"C\n\x04\x43GMS\x12\r\n\tCOPY_FREE\x10\x00\x12\r\n\tCOPY_ONCE\x10\x02\x12\x0e\n\nCOPY_NEVER\x10\x03\x12\r\n\tCGMS_NONE\x10*\x1a\x31\n\nKeyControl\x12\x17\n\x0fKeyControlBlock\x18\x01 \x02(\x0c\x12\n\n\x02Iv\x18\x02 \x02(\x0c\x1a|\n\x1dOperatorSessionKeyPermissions\x12\x14\n\x0c\x41llowEncrypt\x18\x01 \x01(\r\x12\x14\n\x0c\x41llowDecrypt\x18\x02 \x01(\r\x12\x11\n\tAllowSign\x18\x03 \x01(\r\x12\x1c\n\x14\x41llowSignatureVerify\x18\x04 \x01(\r\x1a\x99\x01\n\x19VideoResolutionConstraint\x12\x1b\n\x13MinResolutionPixels\x18\x01 \x01(\r\x12\x1b\n\x13MaxResolutionPixels\x18\x02 \x01(\r\x12\x42\n\x12RequiredProtection\x18\x03 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\"J\n\x07KeyType\x12\x0b\n\x07SIGNING\x10\x01\x12\x0b\n\x07\x43ONTENT\x10\x02\x12\x0f\n\x0bKEY_CONTROL\x10\x03\x12\x14\n\x10OPERATOR_SESSION\x10\x04\"z\n\rSecurityLevel\x12\x14\n\x10SW_SECURE_CRYPTO\x10\x01\x12\x14\n\x10SW_SECURE_DECODE\x10\x02\x12\x14\n\x10HW_SECURE_CRYPTO\x10\x03\x12\x14\n\x10HW_SECURE_DECODE\x10\x04\x12\x11\n\rHW_SECURE_ALL\x10\x05\"\x98\x01\n\x0cLicenseError\x12&\n\tErrorCode\x18\x01 \x01(\x0e\x32\x13.LicenseError.Error\"`\n\x05\x45rror\x12\x1e\n\x1aINVALID_DEVICE_CERTIFICATE\x10\x01\x12\x1e\n\x1aREVOKED_DEVICE_CERTIFICATE\x10\x02\x12\x17\n\x13SERVICE_UNAVAILABLE\x10\x03\"\xac\x07\n\x0eLicenseRequest\x12\'\n\x08\x43lientId\x18\x01 \x01(\x0b\x32\x15.ClientIdentification\x12\x38\n\tContentId\x18\x02 \x01(\x0b\x32%.LicenseRequest.ContentIdentification\x12)\n\x04Type\x18\x03 \x01(\x0e\x32\x1b.LicenseRequest.RequestType\x12\x13\n\x0bRequestTime\x18\x04 \x01(\r\x12!\n\x19KeyControlNonceDeprecated\x18\x05 \x01(\x0c\x12)\n\x0fProtocolVersion\x18\x06 \x01(\x0e\x32\x10.ProtocolVersion\x12\x17\n\x0fKeyControlNonce\x18\x07 \x01(\r\x12\x39\n\x11\x45ncryptedClientId\x18\x08 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x1a\xa2\x04\n\x15\x43ontentIdentification\x12:\n\x06\x43\x65ncId\x18\x01 \x01(\x0b\x32*.LicenseRequest.ContentIdentification.CENC\x12:\n\x06WebmId\x18\x02 \x01(\x0b\x32*.LicenseRequest.ContentIdentification.WebM\x12\x46\n\x07License\x18\x03 \x01(\x0b\x32\x35.LicenseRequest.ContentIdentification.ExistingLicense\x1a_\n\x04\x43\x45NC\x12!\n\x04Pssh\x18\x01 \x01(\x0b\x32\x13.WidevineCencHeader\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1aL\n\x04WebM\x12\x0e\n\x06Header\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1a\x99\x01\n\x0f\x45xistingLicense\x12)\n\tLicenseId\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12\x1b\n\x13SecondsSinceStarted\x18\x02 \x01(\r\x12\x1e\n\x16SecondsSinceLastPlayed\x18\x03 \x01(\r\x12\x1e\n\x16SessionUsageTableEntry\x18\x04 \x01(\x0c\"0\n\x0bRequestType\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RENEWAL\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\"\xa9\x07\n\x11LicenseRequestRaw\x12\'\n\x08\x43lientId\x18\x01 \x01(\x0b\x32\x15.ClientIdentification\x12;\n\tContentId\x18\x02 \x01(\x0b\x32(.LicenseRequestRaw.ContentIdentification\x12,\n\x04Type\x18\x03 \x01(\x0e\x32\x1e.LicenseRequestRaw.RequestType\x12\x13\n\x0bRequestTime\x18\x04 \x01(\r\x12!\n\x19KeyControlNonceDeprecated\x18\x05 \x01(\x0c\x12)\n\x0fProtocolVersion\x18\x06 \x01(\x0e\x32\x10.ProtocolVersion\x12\x17\n\x0fKeyControlNonce\x18\x07 \x01(\r\x12\x39\n\x11\x45ncryptedClientId\x18\x08 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x1a\x96\x04\n\x15\x43ontentIdentification\x12=\n\x06\x43\x65ncId\x18\x01 \x01(\x0b\x32-.LicenseRequestRaw.ContentIdentification.CENC\x12=\n\x06WebmId\x18\x02 \x01(\x0b\x32-.LicenseRequestRaw.ContentIdentification.WebM\x12I\n\x07License\x18\x03 \x01(\x0b\x32\x38.LicenseRequestRaw.ContentIdentification.ExistingLicense\x1aJ\n\x04\x43\x45NC\x12\x0c\n\x04Pssh\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1aL\n\x04WebM\x12\x0e\n\x06Header\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1a\x99\x01\n\x0f\x45xistingLicense\x12)\n\tLicenseId\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12\x1b\n\x13SecondsSinceStarted\x18\x02 \x01(\r\x12\x1e\n\x16SecondsSinceLastPlayed\x18\x03 \x01(\r\x12\x1e\n\x16SessionUsageTableEntry\x18\x04 \x01(\x0c\"0\n\x0bRequestType\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RENEWAL\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\"\xa6\x02\n\x15ProvisionedDeviceInfo\x12\x10\n\x08SystemId\x18\x01 \x01(\r\x12\x0b\n\x03Soc\x18\x02 \x01(\t\x12\x14\n\x0cManufacturer\x18\x03 \x01(\t\x12\r\n\x05Model\x18\x04 \x01(\t\x12\x12\n\nDeviceType\x18\x05 \x01(\t\x12\x11\n\tModelYear\x18\x06 \x01(\r\x12=\n\rSecurityLevel\x18\x07 \x01(\x0e\x32&.ProvisionedDeviceInfo.WvSecurityLevel\x12\x12\n\nTestDevice\x18\x08 \x01(\r\"O\n\x0fWvSecurityLevel\x12\x15\n\x11LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07LEVEL_1\x10\x01\x12\x0b\n\x07LEVEL_2\x10\x02\x12\x0b\n\x07LEVEL_3\x10\x03\"\x15\n\x13ProvisioningOptions\"\x15\n\x13ProvisioningRequest\"\x16\n\x14ProvisioningResponse\"i\n\x11RemoteAttestation\x12\x33\n\x0b\x43\x65rtificate\x18\x01 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x12\x0c\n\x04Salt\x18\x02 \x01(\t\x12\x11\n\tSignature\x18\x03 \x01(\t\"\r\n\x0bSessionInit\"\x0e\n\x0cSessionState\"\x1d\n\x1bSignedCertificateStatusList\"\x86\x01\n\x17SignedDeviceCertificate\x12.\n\x12_DeviceCertificate\x18\x01 \x01(\x0b\x32\x12.DeviceCertificate\x12\x11\n\tSignature\x18\x02 \x01(\x0c\x12(\n\x06Signer\x18\x03 \x01(\x0b\x32\x18.SignedDeviceCertificate\"\x1b\n\x19SignedProvisioningMessage\"\x9b\x02\n\rSignedMessage\x12(\n\x04Type\x18\x01 \x01(\x0e\x32\x1a.SignedMessage.MessageType\x12\x0b\n\x03Msg\x18\x02 \x01(\x0c\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xc5\x02\n\x12WidevineCencHeader\x12\x30\n\talgorithm\x18\x01 \x01(\x0e\x32\x1d.WidevineCencHeader.Algorithm\x12\x0e\n\x06key_id\x18\x02 \x03(\x0c\x12\x10\n\x08provider\x18\x03 \x01(\t\x12\x12\n\ncontent_id\x18\x04 \x01(\x0c\x12\x1d\n\x15track_type_deprecated\x18\x05 \x01(\t\x12\x0e\n\x06policy\x18\x06 \x01(\t\x12\x1b\n\x13\x63rypto_period_index\x18\x07 \x01(\r\x12\x17\n\x0fgrouped_license\x18\x08 \x01(\x0c\x12\x19\n\x11protection_scheme\x18\t \x01(\r\x12\x1d\n\x15\x63rypto_period_seconds\x18\n \x01(\r\"(\n\tAlgorithm\x12\x0f\n\x0bUNENCRYPTED\x10\x00\x12\n\n\x06\x41\x45SCTR\x10\x01\"\xba\x02\n\x14SignedLicenseRequest\x12/\n\x04Type\x18\x01 \x01(\x0e\x32!.SignedLicenseRequest.MessageType\x12\x1c\n\x03Msg\x18\x02 \x01(\x0b\x32\x0f.LicenseRequest\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xc3\x02\n\x17SignedLicenseRequestRaw\x12\x32\n\x04Type\x18\x01 \x01(\x0e\x32$.SignedLicenseRequestRaw.MessageType\x12\x1f\n\x03Msg\x18\x02 \x01(\x0b\x32\x12.LicenseRequestRaw\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xa5\x02\n\rSignedLicense\x12(\n\x04Type\x18\x01 \x01(\x0e\x32\x1a.SignedLicense.MessageType\x12\x15\n\x03Msg\x18\x02 \x01(\x0b\x32\x08.License\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xcb\x02\n\x18SignedServiceCertificate\x12\x33\n\x04Type\x18\x01 \x01(\x0e\x32%.SignedServiceCertificate.MessageType\x12%\n\x03Msg\x18\x02 \x01(\x0b\x32\x18.SignedDeviceCertificate\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xb5\x01\n\nFileHashes\x12\x0e\n\x06signer\x18\x01 \x01(\x0c\x12)\n\nsignatures\x18\x02 \x03(\x0b\x32\x15.FileHashes.Signature\x1al\n\tSignature\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x14\n\x0ctest_signing\x18\x02 \x01(\x08\x12\x12\n\nSHA512Hash\x18\x03 \x01(\x0c\x12\x10\n\x08main_exe\x18\x04 \x01(\x08\x12\x11\n\tsignature\x18\x05 \x01(\x0c\"\x14\n\x04puid\x12\x0c\n\x04puid\x18\x01 \x01(\x05*1\n\x0bLicenseType\x12\x08\n\x04ZERO\x10\x00\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02*\x1e\n\x0fProtocolVersion\x12\x0b\n\x07\x43URRENT\x10\x15')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x63\x64m/formats/wv_proto2.proto\"\xc5\x02\n\x12WidevineCencHeader\x12\x30\n\talgorithm\x18\x01 \x01(\x0e\x32\x1d.WidevineCencHeader.Algorithm\x12\x0e\n\x06key_id\x18\x02 \x03(\x0c\x12\x10\n\x08provider\x18\x03 \x01(\t\x12\x12\n\ncontent_id\x18\x04 \x01(\x0c\x12\x1d\n\x15track_type_deprecated\x18\x05 \x01(\t\x12\x0e\n\x06policy\x18\x06 \x01(\t\x12\x1b\n\x13\x63rypto_period_index\x18\x07 \x01(\r\x12\x17\n\x0fgrouped_license\x18\x08 \x01(\x0c\x12\x19\n\x11protection_scheme\x18\t \x01(\r\x12\x1d\n\x15\x63rypto_period_seconds\x18\n \x01(\r\"(\n\tAlgorithm\x12\x0f\n\x0bUNENCRYPTED\x10\x00\x12\n\n\x06\x41\x45SCTR\x10\x01\"\xe7\x05\n\x14\x43lientIdentification\x12-\n\x04Type\x18\x01 \x02(\x0e\x32\x1f.ClientIdentification.TokenType\x12\'\n\x05Token\x18\x02 \x01(\x0b\x32\x18.SignedDeviceCertificate\x12\x33\n\nClientInfo\x18\x03 \x03(\x0b\x32\x1f.ClientIdentification.NameValue\x12\x1b\n\x13ProviderClientToken\x18\x04 \x01(\x0c\x12\x16\n\x0eLicenseCounter\x18\x05 \x01(\r\x12\x45\n\x13_ClientCapabilities\x18\x06 \x01(\x0b\x32(.ClientIdentification.ClientCapabilities\x12 \n\x0b_FileHashes\x18\x07 \x01(\x0b\x32\x0b.FileHashes\x1a(\n\tNameValue\x12\x0c\n\x04Name\x18\x01 \x02(\t\x12\r\n\x05Value\x18\x02 \x02(\t\x1a\xa4\x02\n\x12\x43lientCapabilities\x12\x13\n\x0b\x43lientToken\x18\x01 \x01(\r\x12\x14\n\x0cSessionToken\x18\x02 \x01(\r\x12\"\n\x1aVideoResolutionConstraints\x18\x03 \x01(\r\x12L\n\x0eMaxHdcpVersion\x18\x04 \x01(\x0e\x32\x34.ClientIdentification.ClientCapabilities.HdcpVersion\x12\x1b\n\x13OemCryptoApiVersion\x18\x05 \x01(\r\"T\n\x0bHdcpVersion\x12\r\n\tHDCP_NONE\x10\x00\x12\x0b\n\x07HDCP_V1\x10\x01\x12\x0b\n\x07HDCP_V2\x10\x02\x12\r\n\tHDCP_V2_1\x10\x03\x12\r\n\tHDCP_V2_2\x10\x04\"S\n\tTokenType\x12\n\n\x06KEYBOX\x10\x00\x12\x16\n\x12\x44\x45VICE_CERTIFICATE\x10\x01\x12\"\n\x1eREMOTE_ATTESTATION_CERTIFICATE\x10\x02\"\x9b\x02\n\x11\x44\x65viceCertificate\x12\x30\n\x04Type\x18\x01 \x02(\x0e\x32\".DeviceCertificate.CertificateType\x12\x14\n\x0cSerialNumber\x18\x02 \x01(\x0c\x12\x1b\n\x13\x43reationTimeSeconds\x18\x03 \x01(\r\x12\x11\n\tPublicKey\x18\x04 \x01(\x0c\x12\x10\n\x08SystemId\x18\x05 \x01(\r\x12\x1c\n\x14TestDeviceDeprecated\x18\x06 \x01(\r\x12\x11\n\tServiceId\x18\x07 \x01(\x0c\"K\n\x0f\x43\x65rtificateType\x12\x08\n\x04ROOT\x10\x00\x12\x10\n\x0cINTERMEDIATE\x10\x01\x12\x0f\n\x0bUSER_DEVICE\x10\x02\x12\x0b\n\x07SERVICE\x10\x03\"\xc4\x01\n\x17\x44\x65viceCertificateStatus\x12\x14\n\x0cSerialNumber\x18\x01 \x01(\x0c\x12:\n\x06Status\x18\x02 \x01(\x0e\x32*.DeviceCertificateStatus.CertificateStatus\x12*\n\nDeviceInfo\x18\x04 \x01(\x0b\x32\x16.ProvisionedDeviceInfo\"+\n\x11\x43\x65rtificateStatus\x12\t\n\x05VALID\x10\x00\x12\x0b\n\x07REVOKED\x10\x01\"o\n\x1b\x44\x65viceCertificateStatusList\x12\x1b\n\x13\x43reationTimeSeconds\x18\x01 \x01(\r\x12\x33\n\x11\x43\x65rtificateStatus\x18\x02 \x03(\x0b\x32\x18.DeviceCertificateStatus\"\xaf\x01\n\x1d\x45ncryptedClientIdentification\x12\x11\n\tServiceId\x18\x01 \x02(\t\x12&\n\x1eServiceCertificateSerialNumber\x18\x02 \x01(\x0c\x12\x19\n\x11\x45ncryptedClientId\x18\x03 \x02(\x0c\x12\x1b\n\x13\x45ncryptedClientIdIv\x18\x04 \x02(\x0c\x12\x1b\n\x13\x45ncryptedPrivacyKey\x18\x05 \x02(\x0c\"\x9c\x01\n\x15LicenseIdentification\x12\x11\n\tRequestId\x18\x01 \x01(\x0c\x12\x11\n\tSessionId\x18\x02 \x01(\x0c\x12\x12\n\nPurchaseId\x18\x03 \x01(\x0c\x12\x1a\n\x04Type\x18\x04 \x01(\x0e\x32\x0c.LicenseType\x12\x0f\n\x07Version\x18\x05 \x01(\r\x12\x1c\n\x14ProviderSessionToken\x18\x06 \x01(\x0c\"\xa1\x0e\n\x07License\x12\"\n\x02Id\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12 \n\x07_Policy\x18\x02 \x01(\x0b\x32\x0f.License.Policy\x12\"\n\x03Key\x18\x03 \x03(\x0b\x32\x15.License.KeyContainer\x12\x18\n\x10LicenseStartTime\x18\x04 \x01(\r\x12!\n\x19RemoteAttestationVerified\x18\x05 \x01(\r\x12\x1b\n\x13ProviderClientToken\x18\x06 \x01(\x0c\x12\x18\n\x10ProtectionScheme\x18\x07 \x01(\r\x1a\xbb\x02\n\x06Policy\x12\x0f\n\x07\x43\x61nPlay\x18\x01 \x01(\x08\x12\x12\n\nCanPersist\x18\x02 \x01(\x08\x12\x10\n\x08\x43\x61nRenew\x18\x03 \x01(\x08\x12\x1d\n\x15RentalDurationSeconds\x18\x04 \x01(\r\x12\x1f\n\x17PlaybackDurationSeconds\x18\x05 \x01(\r\x12\x1e\n\x16LicenseDurationSeconds\x18\x06 \x01(\r\x12&\n\x1eRenewalRecoveryDurationSeconds\x18\x07 \x01(\r\x12\x18\n\x10RenewalServerUrl\x18\x08 \x01(\t\x12\x1b\n\x13RenewalDelaySeconds\x18\t \x01(\r\x12#\n\x1bRenewalRetryIntervalSeconds\x18\n \x01(\r\x12\x16\n\x0eRenewWithUsage\x18\x0b \x01(\x08\x1a\xf9\t\n\x0cKeyContainer\x12\n\n\x02Id\x18\x01 \x01(\x0c\x12\n\n\x02Iv\x18\x02 \x01(\x0c\x12\x0b\n\x03Key\x18\x03 \x01(\x0c\x12+\n\x04Type\x18\x04 \x01(\x0e\x32\x1d.License.KeyContainer.KeyType\x12\x32\n\x05Level\x18\x05 \x01(\x0e\x32#.License.KeyContainer.SecurityLevel\x12\x42\n\x12RequiredProtection\x18\x06 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\x12\x43\n\x13RequestedProtection\x18\x07 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\x12\x35\n\x0b_KeyControl\x18\x08 \x01(\x0b\x32 .License.KeyContainer.KeyControl\x12[\n\x1e_OperatorSessionKeyPermissions\x18\t \x01(\x0b\x32\x33.License.KeyContainer.OperatorSessionKeyPermissions\x12S\n\x1aVideoResolutionConstraints\x18\n \x03(\x0b\x32/.License.KeyContainer.VideoResolutionConstraint\x1a\xdb\x01\n\x10OutputProtection\x12\x42\n\x04Hdcp\x18\x01 \x01(\x0e\x32\x34.ClientIdentification.ClientCapabilities.HdcpVersion\x12>\n\tCgmsFlags\x18\x02 \x01(\x0e\x32+.License.KeyContainer.OutputProtection.CGMS\"C\n\x04\x43GMS\x12\r\n\tCOPY_FREE\x10\x00\x12\r\n\tCOPY_ONCE\x10\x02\x12\x0e\n\nCOPY_NEVER\x10\x03\x12\r\n\tCGMS_NONE\x10*\x1a\x31\n\nKeyControl\x12\x17\n\x0fKeyControlBlock\x18\x01 \x02(\x0c\x12\n\n\x02Iv\x18\x02 \x02(\x0c\x1a|\n\x1dOperatorSessionKeyPermissions\x12\x14\n\x0c\x41llowEncrypt\x18\x01 \x01(\r\x12\x14\n\x0c\x41llowDecrypt\x18\x02 \x01(\r\x12\x11\n\tAllowSign\x18\x03 \x01(\r\x12\x1c\n\x14\x41llowSignatureVerify\x18\x04 \x01(\r\x1a\x99\x01\n\x19VideoResolutionConstraint\x12\x1b\n\x13MinResolutionPixels\x18\x01 \x01(\r\x12\x1b\n\x13MaxResolutionPixels\x18\x02 \x01(\r\x12\x42\n\x12RequiredProtection\x18\x03 \x01(\x0b\x32&.License.KeyContainer.OutputProtection\"J\n\x07KeyType\x12\x0b\n\x07SIGNING\x10\x01\x12\x0b\n\x07\x43ONTENT\x10\x02\x12\x0f\n\x0bKEY_CONTROL\x10\x03\x12\x14\n\x10OPERATOR_SESSION\x10\x04\"z\n\rSecurityLevel\x12\x14\n\x10SW_SECURE_CRYPTO\x10\x01\x12\x14\n\x10SW_SECURE_DECODE\x10\x02\x12\x14\n\x10HW_SECURE_CRYPTO\x10\x03\x12\x14\n\x10HW_SECURE_DECODE\x10\x04\x12\x11\n\rHW_SECURE_ALL\x10\x05\"\x98\x01\n\x0cLicenseError\x12&\n\tErrorCode\x18\x01 \x01(\x0e\x32\x13.LicenseError.Error\"`\n\x05\x45rror\x12\x1e\n\x1aINVALID_DEVICE_CERTIFICATE\x10\x01\x12\x1e\n\x1aREVOKED_DEVICE_CERTIFICATE\x10\x02\x12\x17\n\x13SERVICE_UNAVAILABLE\x10\x03\"\x9e\t\n\x0eLicenseRequest\x12\'\n\x08\x43lientId\x18\x01 \x01(\x0b\x32\x15.ClientIdentification\x12\x38\n\tContentId\x18\x02 \x01(\x0b\x32%.LicenseRequest.ContentIdentification\x12)\n\x04Type\x18\x03 \x01(\x0e\x32\x1b.LicenseRequest.RequestType\x12\x13\n\x0bRequestTime\x18\x04 \x01(\r\x12!\n\x19KeyControlNonceDeprecated\x18\x05 \x01(\x0c\x12)\n\x0fProtocolVersion\x18\x06 \x01(\x0e\x32\x10.ProtocolVersion\x12\x17\n\x0fKeyControlNonce\x18\x07 \x01(\r\x12\x39\n\x11\x45ncryptedClientId\x18\x08 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x12\x0f\n\x07version\x18\t \x01(\t\x12\x0c\n\x04puid\x18\n \x01(\t\x12\x16\n\x0ewatchSessionId\x18\x0b \x01(\t\x12\x11\n\tcontentId\x18\x0c \x01(\t\x12\x15\n\rcontentTypeId\x18\r \x01(\t\x12\x13\n\x0bserviceName\x18\x0e \x01(\t\x12\x11\n\tproductId\x18\x0f \x01(\t\x12\x19\n\x11monetizationModel\x18\x10 \x01(\t\x12\x1b\n\x13\x65xpirationTimestamp\x18\x11 \x01(\t\x12\x1c\n\x14verificationRequired\x18\x12 \x01(\t\x12\x11\n\tsignature\x18\x13 \x01(\t\x1a\xa2\x04\n\x15\x43ontentIdentification\x12:\n\x06\x43\x65ncId\x18\x01 \x01(\x0b\x32*.LicenseRequest.ContentIdentification.CENC\x12:\n\x06WebmId\x18\x02 \x01(\x0b\x32*.LicenseRequest.ContentIdentification.WebM\x12\x46\n\x07License\x18\x03 \x01(\x0b\x32\x35.LicenseRequest.ContentIdentification.ExistingLicense\x1a_\n\x04\x43\x45NC\x12!\n\x04Pssh\x18\x01 \x01(\x0b\x32\x13.WidevineCencHeader\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1aL\n\x04WebM\x12\x0e\n\x06Header\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1a\x99\x01\n\x0f\x45xistingLicense\x12)\n\tLicenseId\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12\x1b\n\x13SecondsSinceStarted\x18\x02 \x01(\r\x12\x1e\n\x16SecondsSinceLastPlayed\x18\x03 \x01(\r\x12\x1e\n\x16SessionUsageTableEntry\x18\x04 \x01(\x0c\"0\n\x0bRequestType\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RENEWAL\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\"\xa9\x07\n\x11LicenseRequestRaw\x12\'\n\x08\x43lientId\x18\x01 \x01(\x0b\x32\x15.ClientIdentification\x12;\n\tContentId\x18\x02 \x01(\x0b\x32(.LicenseRequestRaw.ContentIdentification\x12,\n\x04Type\x18\x03 \x01(\x0e\x32\x1e.LicenseRequestRaw.RequestType\x12\x13\n\x0bRequestTime\x18\x04 \x01(\r\x12!\n\x19KeyControlNonceDeprecated\x18\x05 \x01(\x0c\x12)\n\x0fProtocolVersion\x18\x06 \x01(\x0e\x32\x10.ProtocolVersion\x12\x17\n\x0fKeyControlNonce\x18\x07 \x01(\r\x12\x39\n\x11\x45ncryptedClientId\x18\x08 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x1a\x96\x04\n\x15\x43ontentIdentification\x12=\n\x06\x43\x65ncId\x18\x01 \x01(\x0b\x32-.LicenseRequestRaw.ContentIdentification.CENC\x12=\n\x06WebmId\x18\x02 \x01(\x0b\x32-.LicenseRequestRaw.ContentIdentification.WebM\x12I\n\x07License\x18\x03 \x01(\x0b\x32\x38.LicenseRequestRaw.ContentIdentification.ExistingLicense\x1aJ\n\x04\x43\x45NC\x12\x0c\n\x04Pssh\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1aL\n\x04WebM\x12\x0e\n\x06Header\x18\x01 \x01(\x0c\x12!\n\x0bLicenseType\x18\x02 \x01(\x0e\x32\x0c.LicenseType\x12\x11\n\tRequestId\x18\x03 \x01(\x0c\x1a\x99\x01\n\x0f\x45xistingLicense\x12)\n\tLicenseId\x18\x01 \x01(\x0b\x32\x16.LicenseIdentification\x12\x1b\n\x13SecondsSinceStarted\x18\x02 \x01(\r\x12\x1e\n\x16SecondsSinceLastPlayed\x18\x03 \x01(\r\x12\x1e\n\x16SessionUsageTableEntry\x18\x04 \x01(\x0c\"0\n\x0bRequestType\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RENEWAL\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\"\xa6\x02\n\x15ProvisionedDeviceInfo\x12\x10\n\x08SystemId\x18\x01 \x01(\r\x12\x0b\n\x03Soc\x18\x02 \x01(\t\x12\x14\n\x0cManufacturer\x18\x03 \x01(\t\x12\r\n\x05Model\x18\x04 \x01(\t\x12\x12\n\nDeviceType\x18\x05 \x01(\t\x12\x11\n\tModelYear\x18\x06 \x01(\r\x12=\n\rSecurityLevel\x18\x07 \x01(\x0e\x32&.ProvisionedDeviceInfo.WvSecurityLevel\x12\x12\n\nTestDevice\x18\x08 \x01(\r\"O\n\x0fWvSecurityLevel\x12\x15\n\x11LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07LEVEL_1\x10\x01\x12\x0b\n\x07LEVEL_2\x10\x02\x12\x0b\n\x07LEVEL_3\x10\x03\"\x15\n\x13ProvisioningOptions\"\x15\n\x13ProvisioningRequest\"\x16\n\x14ProvisioningResponse\"i\n\x11RemoteAttestation\x12\x33\n\x0b\x43\x65rtificate\x18\x01 \x01(\x0b\x32\x1e.EncryptedClientIdentification\x12\x0c\n\x04Salt\x18\x02 \x01(\t\x12\x11\n\tSignature\x18\x03 \x01(\t\"\r\n\x0bSessionInit\"\x0e\n\x0cSessionState\"\x1d\n\x1bSignedCertificateStatusList\"\x86\x01\n\x17SignedDeviceCertificate\x12.\n\x12_DeviceCertificate\x18\x01 \x01(\x0b\x32\x12.DeviceCertificate\x12\x11\n\tSignature\x18\x02 \x01(\x0c\x12(\n\x06Signer\x18\x03 \x01(\x0b\x32\x18.SignedDeviceCertificate\"\x1b\n\x19SignedProvisioningMessage\"\x9b\x02\n\rSignedMessage\x12(\n\x04Type\x18\x01 \x01(\x0e\x32\x1a.SignedMessage.MessageType\x12\x0b\n\x03Msg\x18\x02 \x01(\x0c\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xba\x02\n\x14SignedLicenseRequest\x12/\n\x04Type\x18\x01 \x01(\x0e\x32!.SignedLicenseRequest.MessageType\x12\x1c\n\x03Msg\x18\x02 \x01(\x0b\x32\x0f.LicenseRequest\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xc3\x02\n\x17SignedLicenseRequestRaw\x12\x32\n\x04Type\x18\x01 \x01(\x0e\x32$.SignedLicenseRequestRaw.MessageType\x12\x1f\n\x03Msg\x18\x02 \x01(\x0b\x32\x12.LicenseRequestRaw\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xa5\x02\n\rSignedLicense\x12(\n\x04Type\x18\x01 \x01(\x0e\x32\x1a.SignedLicense.MessageType\x12\x15\n\x03Msg\x18\x02 \x01(\x0b\x32\x08.License\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xcb\x02\n\x18SignedServiceCertificate\x12\x33\n\x04Type\x18\x01 \x01(\x0e\x32%.SignedServiceCertificate.MessageType\x12%\n\x03Msg\x18\x02 \x01(\x0b\x32\x18.SignedDeviceCertificate\x12\x11\n\tSignature\x18\x03 \x01(\x0c\x12\x12\n\nSessionKey\x18\x04 \x01(\x0c\x12-\n\x11RemoteAttestation\x18\x05 \x01(\x0b\x32\x12.RemoteAttestation\"}\n\x0bMessageType\x12\x13\n\x0fLICENSE_REQUEST\x10\x01\x12\x0b\n\x07LICENSE\x10\x02\x12\x12\n\x0e\x45RROR_RESPONSE\x10\x03\x12\x1f\n\x1bSERVICE_CERTIFICATE_REQUEST\x10\x04\x12\x17\n\x13SERVICE_CERTIFICATE\x10\x05\"\xb5\x01\n\nFileHashes\x12\x0e\n\x06signer\x18\x01 \x01(\x0c\x12)\n\nsignatures\x18\x02 \x03(\x0b\x32\x15.FileHashes.Signature\x1al\n\tSignature\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x14\n\x0ctest_signing\x18\x02 \x01(\x08\x12\x12\n\nSHA512Hash\x18\x03 \x01(\x0c\x12\x10\n\x08main_exe\x18\x04 \x01(\x08\x12\x11\n\tsignature\x18\x05 \x01(\x0c*1\n\x0bLicenseType\x12\x08\n\x04ZERO\x10\x00\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02*\x1e\n\x0fProtocolVersion\x12\x0b\n\x07\x43URRENT\x10\x15')
 
 _LICENSETYPE = DESCRIPTOR.enum_types_by_name['LicenseType']
 LicenseType = enum_type_wrapper.EnumTypeWrapper(_LICENSETYPE)
@@ -27,6 +27,7 @@ OFFLINE = 2
 CURRENT = 21
 
 
+_WIDEVINECENCHEADER = DESCRIPTOR.message_types_by_name['WidevineCencHeader']
 _CLIENTIDENTIFICATION = DESCRIPTOR.message_types_by_name['ClientIdentification']
 _CLIENTIDENTIFICATION_NAMEVALUE = _CLIENTIDENTIFICATION.nested_types_by_name['NameValue']
 _CLIENTIDENTIFICATION_CLIENTCAPABILITIES = _CLIENTIDENTIFICATION.nested_types_by_name['ClientCapabilities']
@@ -64,14 +65,13 @@ _SIGNEDCERTIFICATESTATUSLIST = DESCRIPTOR.message_types_by_name['SignedCertifica
 _SIGNEDDEVICECERTIFICATE = DESCRIPTOR.message_types_by_name['SignedDeviceCertificate']
 _SIGNEDPROVISIONINGMESSAGE = DESCRIPTOR.message_types_by_name['SignedProvisioningMessage']
 _SIGNEDMESSAGE = DESCRIPTOR.message_types_by_name['SignedMessage']
-_WIDEVINECENCHEADER = DESCRIPTOR.message_types_by_name['WidevineCencHeader']
 _SIGNEDLICENSEREQUEST = DESCRIPTOR.message_types_by_name['SignedLicenseRequest']
 _SIGNEDLICENSEREQUESTRAW = DESCRIPTOR.message_types_by_name['SignedLicenseRequestRaw']
 _SIGNEDLICENSE = DESCRIPTOR.message_types_by_name['SignedLicense']
 _SIGNEDSERVICECERTIFICATE = DESCRIPTOR.message_types_by_name['SignedServiceCertificate']
 _FILEHASHES = DESCRIPTOR.message_types_by_name['FileHashes']
 _FILEHASHES_SIGNATURE = _FILEHASHES.nested_types_by_name['Signature']
-_PUID = DESCRIPTOR.message_types_by_name['puid']
+_WIDEVINECENCHEADER_ALGORITHM = _WIDEVINECENCHEADER.enum_types_by_name['Algorithm']
 _CLIENTIDENTIFICATION_CLIENTCAPABILITIES_HDCPVERSION = _CLIENTIDENTIFICATION_CLIENTCAPABILITIES.enum_types_by_name['HdcpVersion']
 _CLIENTIDENTIFICATION_TOKENTYPE = _CLIENTIDENTIFICATION.enum_types_by_name['TokenType']
 _DEVICECERTIFICATE_CERTIFICATETYPE = _DEVICECERTIFICATE.enum_types_by_name['CertificateType']
@@ -84,11 +84,17 @@ _LICENSEREQUEST_REQUESTTYPE = _LICENSEREQUEST.enum_types_by_name['RequestType']
 _LICENSEREQUESTRAW_REQUESTTYPE = _LICENSEREQUESTRAW.enum_types_by_name['RequestType']
 _PROVISIONEDDEVICEINFO_WVSECURITYLEVEL = _PROVISIONEDDEVICEINFO.enum_types_by_name['WvSecurityLevel']
 _SIGNEDMESSAGE_MESSAGETYPE = _SIGNEDMESSAGE.enum_types_by_name['MessageType']
-_WIDEVINECENCHEADER_ALGORITHM = _WIDEVINECENCHEADER.enum_types_by_name['Algorithm']
 _SIGNEDLICENSEREQUEST_MESSAGETYPE = _SIGNEDLICENSEREQUEST.enum_types_by_name['MessageType']
 _SIGNEDLICENSEREQUESTRAW_MESSAGETYPE = _SIGNEDLICENSEREQUESTRAW.enum_types_by_name['MessageType']
 _SIGNEDLICENSE_MESSAGETYPE = _SIGNEDLICENSE.enum_types_by_name['MessageType']
 _SIGNEDSERVICECERTIFICATE_MESSAGETYPE = _SIGNEDSERVICECERTIFICATE.enum_types_by_name['MessageType']
+WidevineCencHeader = _reflection.GeneratedProtocolMessageType('WidevineCencHeader', (_message.Message,), {
+  'DESCRIPTOR' : _WIDEVINECENCHEADER,
+  '__module__' : 'cdm.formats.wv_proto2_pb2'
+  # @@protoc_insertion_point(class_scope:WidevineCencHeader)
+  })
+_sym_db.RegisterMessage(WidevineCencHeader)
+
 ClientIdentification = _reflection.GeneratedProtocolMessageType('ClientIdentification', (_message.Message,), {
 
   'NameValue' : _reflection.GeneratedProtocolMessageType('NameValue', (_message.Message,), {
@@ -364,13 +370,6 @@ SignedMessage = _reflection.GeneratedProtocolMessageType('SignedMessage', (_mess
   })
 _sym_db.RegisterMessage(SignedMessage)
 
-WidevineCencHeader = _reflection.GeneratedProtocolMessageType('WidevineCencHeader', (_message.Message,), {
-  'DESCRIPTOR' : _WIDEVINECENCHEADER,
-  '__module__' : 'cdm.formats.wv_proto2_pb2'
-  # @@protoc_insertion_point(class_scope:WidevineCencHeader)
-  })
-_sym_db.RegisterMessage(WidevineCencHeader)
-
 SignedLicenseRequest = _reflection.GeneratedProtocolMessageType('SignedLicenseRequest', (_message.Message,), {
   'DESCRIPTOR' : _SIGNEDLICENSEREQUEST,
   '__module__' : 'cdm.formats.wv_proto2_pb2'
@@ -414,142 +413,133 @@ FileHashes = _reflection.GeneratedProtocolMessageType('FileHashes', (_message.Me
 _sym_db.RegisterMessage(FileHashes)
 _sym_db.RegisterMessage(FileHashes.Signature)
 
-puid = _reflection.GeneratedProtocolMessageType('puid', (_message.Message,), {
-  'DESCRIPTOR' : _PUID,
-  '__module__' : 'cdm.formats.wv_proto2_pb2'
-  # @@protoc_insertion_point(class_scope:puid)
-  })
-_sym_db.RegisterMessage(puid)
-
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _LICENSETYPE._serialized_start=8373
-  _LICENSETYPE._serialized_end=8422
-  _PROTOCOLVERSION._serialized_start=8424
-  _PROTOCOLVERSION._serialized_end=8454
-  _CLIENTIDENTIFICATION._serialized_start=32
-  _CLIENTIDENTIFICATION._serialized_end=775
-  _CLIENTIDENTIFICATION_NAMEVALUE._serialized_start=355
-  _CLIENTIDENTIFICATION_NAMEVALUE._serialized_end=395
-  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES._serialized_start=398
-  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES._serialized_end=690
-  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES_HDCPVERSION._serialized_start=606
-  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES_HDCPVERSION._serialized_end=690
-  _CLIENTIDENTIFICATION_TOKENTYPE._serialized_start=692
-  _CLIENTIDENTIFICATION_TOKENTYPE._serialized_end=775
-  _DEVICECERTIFICATE._serialized_start=778
-  _DEVICECERTIFICATE._serialized_end=1061
-  _DEVICECERTIFICATE_CERTIFICATETYPE._serialized_start=986
-  _DEVICECERTIFICATE_CERTIFICATETYPE._serialized_end=1061
-  _DEVICECERTIFICATESTATUS._serialized_start=1064
-  _DEVICECERTIFICATESTATUS._serialized_end=1260
-  _DEVICECERTIFICATESTATUS_CERTIFICATESTATUS._serialized_start=1217
-  _DEVICECERTIFICATESTATUS_CERTIFICATESTATUS._serialized_end=1260
-  _DEVICECERTIFICATESTATUSLIST._serialized_start=1262
-  _DEVICECERTIFICATESTATUSLIST._serialized_end=1373
-  _ENCRYPTEDCLIENTIDENTIFICATION._serialized_start=1376
-  _ENCRYPTEDCLIENTIDENTIFICATION._serialized_end=1551
-  _LICENSEIDENTIFICATION._serialized_start=1554
-  _LICENSEIDENTIFICATION._serialized_end=1710
-  _LICENSE._serialized_start=1713
-  _LICENSE._serialized_end=3538
-  _LICENSE_POLICY._serialized_start=1947
-  _LICENSE_POLICY._serialized_end=2262
-  _LICENSE_KEYCONTAINER._serialized_start=2265
-  _LICENSE_KEYCONTAINER._serialized_end=3538
-  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION._serialized_start=2786
-  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION._serialized_end=3005
-  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION_CGMS._serialized_start=2938
-  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION_CGMS._serialized_end=3005
-  _LICENSE_KEYCONTAINER_KEYCONTROL._serialized_start=3007
-  _LICENSE_KEYCONTAINER_KEYCONTROL._serialized_end=3056
-  _LICENSE_KEYCONTAINER_OPERATORSESSIONKEYPERMISSIONS._serialized_start=3058
-  _LICENSE_KEYCONTAINER_OPERATORSESSIONKEYPERMISSIONS._serialized_end=3182
-  _LICENSE_KEYCONTAINER_VIDEORESOLUTIONCONSTRAINT._serialized_start=3185
-  _LICENSE_KEYCONTAINER_VIDEORESOLUTIONCONSTRAINT._serialized_end=3338
-  _LICENSE_KEYCONTAINER_KEYTYPE._serialized_start=3340
-  _LICENSE_KEYCONTAINER_KEYTYPE._serialized_end=3414
-  _LICENSE_KEYCONTAINER_SECURITYLEVEL._serialized_start=3416
-  _LICENSE_KEYCONTAINER_SECURITYLEVEL._serialized_end=3538
-  _LICENSEERROR._serialized_start=3541
-  _LICENSEERROR._serialized_end=3693
-  _LICENSEERROR_ERROR._serialized_start=3597
-  _LICENSEERROR_ERROR._serialized_end=3693
-  _LICENSEREQUEST._serialized_start=3696
-  _LICENSEREQUEST._serialized_end=4636
-  _LICENSEREQUEST_CONTENTIDENTIFICATION._serialized_start=4040
-  _LICENSEREQUEST_CONTENTIDENTIFICATION._serialized_end=4586
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_CENC._serialized_start=4257
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_CENC._serialized_end=4352
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_WEBM._serialized_start=4354
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_WEBM._serialized_end=4430
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_start=4433
-  _LICENSEREQUEST_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_end=4586
-  _LICENSEREQUEST_REQUESTTYPE._serialized_start=4588
-  _LICENSEREQUEST_REQUESTTYPE._serialized_end=4636
-  _LICENSEREQUESTRAW._serialized_start=4639
-  _LICENSEREQUESTRAW._serialized_end=5576
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION._serialized_start=4992
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION._serialized_end=5526
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_CENC._serialized_start=5218
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_CENC._serialized_end=5292
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_WEBM._serialized_start=4354
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_WEBM._serialized_end=4430
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_start=4433
-  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_end=4586
-  _LICENSEREQUESTRAW_REQUESTTYPE._serialized_start=4588
-  _LICENSEREQUESTRAW_REQUESTTYPE._serialized_end=4636
-  _PROVISIONEDDEVICEINFO._serialized_start=5579
-  _PROVISIONEDDEVICEINFO._serialized_end=5873
-  _PROVISIONEDDEVICEINFO_WVSECURITYLEVEL._serialized_start=5794
-  _PROVISIONEDDEVICEINFO_WVSECURITYLEVEL._serialized_end=5873
-  _PROVISIONINGOPTIONS._serialized_start=5875
-  _PROVISIONINGOPTIONS._serialized_end=5896
-  _PROVISIONINGREQUEST._serialized_start=5898
-  _PROVISIONINGREQUEST._serialized_end=5919
-  _PROVISIONINGRESPONSE._serialized_start=5921
-  _PROVISIONINGRESPONSE._serialized_end=5943
-  _REMOTEATTESTATION._serialized_start=5945
-  _REMOTEATTESTATION._serialized_end=6050
-  _SESSIONINIT._serialized_start=6052
-  _SESSIONINIT._serialized_end=6065
-  _SESSIONSTATE._serialized_start=6067
-  _SESSIONSTATE._serialized_end=6081
-  _SIGNEDCERTIFICATESTATUSLIST._serialized_start=6083
-  _SIGNEDCERTIFICATESTATUSLIST._serialized_end=6112
-  _SIGNEDDEVICECERTIFICATE._serialized_start=6115
-  _SIGNEDDEVICECERTIFICATE._serialized_end=6249
-  _SIGNEDPROVISIONINGMESSAGE._serialized_start=6251
-  _SIGNEDPROVISIONINGMESSAGE._serialized_end=6278
-  _SIGNEDMESSAGE._serialized_start=6281
-  _SIGNEDMESSAGE._serialized_end=6564
-  _SIGNEDMESSAGE_MESSAGETYPE._serialized_start=6439
-  _SIGNEDMESSAGE_MESSAGETYPE._serialized_end=6564
-  _WIDEVINECENCHEADER._serialized_start=6567
-  _WIDEVINECENCHEADER._serialized_end=6892
-  _WIDEVINECENCHEADER_ALGORITHM._serialized_start=6852
-  _WIDEVINECENCHEADER_ALGORITHM._serialized_end=6892
-  _SIGNEDLICENSEREQUEST._serialized_start=6895
-  _SIGNEDLICENSEREQUEST._serialized_end=7209
-  _SIGNEDLICENSEREQUEST_MESSAGETYPE._serialized_start=6439
-  _SIGNEDLICENSEREQUEST_MESSAGETYPE._serialized_end=6564
-  _SIGNEDLICENSEREQUESTRAW._serialized_start=7212
-  _SIGNEDLICENSEREQUESTRAW._serialized_end=7535
-  _SIGNEDLICENSEREQUESTRAW_MESSAGETYPE._serialized_start=6439
-  _SIGNEDLICENSEREQUESTRAW_MESSAGETYPE._serialized_end=6564
-  _SIGNEDLICENSE._serialized_start=7538
-  _SIGNEDLICENSE._serialized_end=7831
-  _SIGNEDLICENSE_MESSAGETYPE._serialized_start=6439
-  _SIGNEDLICENSE_MESSAGETYPE._serialized_end=6564
-  _SIGNEDSERVICECERTIFICATE._serialized_start=7834
-  _SIGNEDSERVICECERTIFICATE._serialized_end=8165
-  _SIGNEDSERVICECERTIFICATE_MESSAGETYPE._serialized_start=6439
-  _SIGNEDSERVICECERTIFICATE_MESSAGETYPE._serialized_end=6564
-  _FILEHASHES._serialized_start=8168
-  _FILEHASHES._serialized_end=8349
-  _FILEHASHES_SIGNATURE._serialized_start=8241
-  _FILEHASHES_SIGNATURE._serialized_end=8349
-  _PUID._serialized_start=8351
-  _PUID._serialized_end=8371
+  _LICENSETYPE._serialized_start=8593
+  _LICENSETYPE._serialized_end=8642
+  _PROTOCOLVERSION._serialized_start=8644
+  _PROTOCOLVERSION._serialized_end=8674
+  _WIDEVINECENCHEADER._serialized_start=32
+  _WIDEVINECENCHEADER._serialized_end=357
+  _WIDEVINECENCHEADER_ALGORITHM._serialized_start=317
+  _WIDEVINECENCHEADER_ALGORITHM._serialized_end=357
+  _CLIENTIDENTIFICATION._serialized_start=360
+  _CLIENTIDENTIFICATION._serialized_end=1103
+  _CLIENTIDENTIFICATION_NAMEVALUE._serialized_start=683
+  _CLIENTIDENTIFICATION_NAMEVALUE._serialized_end=723
+  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES._serialized_start=726
+  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES._serialized_end=1018
+  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES_HDCPVERSION._serialized_start=934
+  _CLIENTIDENTIFICATION_CLIENTCAPABILITIES_HDCPVERSION._serialized_end=1018
+  _CLIENTIDENTIFICATION_TOKENTYPE._serialized_start=1020
+  _CLIENTIDENTIFICATION_TOKENTYPE._serialized_end=1103
+  _DEVICECERTIFICATE._serialized_start=1106
+  _DEVICECERTIFICATE._serialized_end=1389
+  _DEVICECERTIFICATE_CERTIFICATETYPE._serialized_start=1314
+  _DEVICECERTIFICATE_CERTIFICATETYPE._serialized_end=1389
+  _DEVICECERTIFICATESTATUS._serialized_start=1392
+  _DEVICECERTIFICATESTATUS._serialized_end=1588
+  _DEVICECERTIFICATESTATUS_CERTIFICATESTATUS._serialized_start=1545
+  _DEVICECERTIFICATESTATUS_CERTIFICATESTATUS._serialized_end=1588
+  _DEVICECERTIFICATESTATUSLIST._serialized_start=1590
+  _DEVICECERTIFICATESTATUSLIST._serialized_end=1701
+  _ENCRYPTEDCLIENTIDENTIFICATION._serialized_start=1704
+  _ENCRYPTEDCLIENTIDENTIFICATION._serialized_end=1879
+  _LICENSEIDENTIFICATION._serialized_start=1882
+  _LICENSEIDENTIFICATION._serialized_end=2038
+  _LICENSE._serialized_start=2041
+  _LICENSE._serialized_end=3866
+  _LICENSE_POLICY._serialized_start=2275
+  _LICENSE_POLICY._serialized_end=2590
+  _LICENSE_KEYCONTAINER._serialized_start=2593
+  _LICENSE_KEYCONTAINER._serialized_end=3866
+  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION._serialized_start=3114
+  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION._serialized_end=3333
+  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION_CGMS._serialized_start=3266
+  _LICENSE_KEYCONTAINER_OUTPUTPROTECTION_CGMS._serialized_end=3333
+  _LICENSE_KEYCONTAINER_KEYCONTROL._serialized_start=3335
+  _LICENSE_KEYCONTAINER_KEYCONTROL._serialized_end=3384
+  _LICENSE_KEYCONTAINER_OPERATORSESSIONKEYPERMISSIONS._serialized_start=3386
+  _LICENSE_KEYCONTAINER_OPERATORSESSIONKEYPERMISSIONS._serialized_end=3510
+  _LICENSE_KEYCONTAINER_VIDEORESOLUTIONCONSTRAINT._serialized_start=3513
+  _LICENSE_KEYCONTAINER_VIDEORESOLUTIONCONSTRAINT._serialized_end=3666
+  _LICENSE_KEYCONTAINER_KEYTYPE._serialized_start=3668
+  _LICENSE_KEYCONTAINER_KEYTYPE._serialized_end=3742
+  _LICENSE_KEYCONTAINER_SECURITYLEVEL._serialized_start=3744
+  _LICENSE_KEYCONTAINER_SECURITYLEVEL._serialized_end=3866
+  _LICENSEERROR._serialized_start=3869
+  _LICENSEERROR._serialized_end=4021
+  _LICENSEERROR_ERROR._serialized_start=3925
+  _LICENSEERROR_ERROR._serialized_end=4021
+  _LICENSEREQUEST._serialized_start=4024
+  _LICENSEREQUEST._serialized_end=5206
+  _LICENSEREQUEST_CONTENTIDENTIFICATION._serialized_start=4610
+  _LICENSEREQUEST_CONTENTIDENTIFICATION._serialized_end=5156
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_CENC._serialized_start=4827
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_CENC._serialized_end=4922
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_WEBM._serialized_start=4924
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_WEBM._serialized_end=5000
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_start=5003
+  _LICENSEREQUEST_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_end=5156
+  _LICENSEREQUEST_REQUESTTYPE._serialized_start=5158
+  _LICENSEREQUEST_REQUESTTYPE._serialized_end=5206
+  _LICENSEREQUESTRAW._serialized_start=5209
+  _LICENSEREQUESTRAW._serialized_end=6146
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION._serialized_start=5562
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION._serialized_end=6096
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_CENC._serialized_start=5788
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_CENC._serialized_end=5862
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_WEBM._serialized_start=4924
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_WEBM._serialized_end=5000
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_start=5003
+  _LICENSEREQUESTRAW_CONTENTIDENTIFICATION_EXISTINGLICENSE._serialized_end=5156
+  _LICENSEREQUESTRAW_REQUESTTYPE._serialized_start=5158
+  _LICENSEREQUESTRAW_REQUESTTYPE._serialized_end=5206
+  _PROVISIONEDDEVICEINFO._serialized_start=6149
+  _PROVISIONEDDEVICEINFO._serialized_end=6443
+  _PROVISIONEDDEVICEINFO_WVSECURITYLEVEL._serialized_start=6364
+  _PROVISIONEDDEVICEINFO_WVSECURITYLEVEL._serialized_end=6443
+  _PROVISIONINGOPTIONS._serialized_start=6445
+  _PROVISIONINGOPTIONS._serialized_end=6466
+  _PROVISIONINGREQUEST._serialized_start=6468
+  _PROVISIONINGREQUEST._serialized_end=6489
+  _PROVISIONINGRESPONSE._serialized_start=6491
+  _PROVISIONINGRESPONSE._serialized_end=6513
+  _REMOTEATTESTATION._serialized_start=6515
+  _REMOTEATTESTATION._serialized_end=6620
+  _SESSIONINIT._serialized_start=6622
+  _SESSIONINIT._serialized_end=6635
+  _SESSIONSTATE._serialized_start=6637
+  _SESSIONSTATE._serialized_end=6651
+  _SIGNEDCERTIFICATESTATUSLIST._serialized_start=6653
+  _SIGNEDCERTIFICATESTATUSLIST._serialized_end=6682
+  _SIGNEDDEVICECERTIFICATE._serialized_start=6685
+  _SIGNEDDEVICECERTIFICATE._serialized_end=6819
+  _SIGNEDPROVISIONINGMESSAGE._serialized_start=6821
+  _SIGNEDPROVISIONINGMESSAGE._serialized_end=6848
+  _SIGNEDMESSAGE._serialized_start=6851
+  _SIGNEDMESSAGE._serialized_end=7134
+  _SIGNEDMESSAGE_MESSAGETYPE._serialized_start=7009
+  _SIGNEDMESSAGE_MESSAGETYPE._serialized_end=7134
+  _SIGNEDLICENSEREQUEST._serialized_start=7137
+  _SIGNEDLICENSEREQUEST._serialized_end=7451
+  _SIGNEDLICENSEREQUEST_MESSAGETYPE._serialized_start=7009
+  _SIGNEDLICENSEREQUEST_MESSAGETYPE._serialized_end=7134
+  _SIGNEDLICENSEREQUESTRAW._serialized_start=7454
+  _SIGNEDLICENSEREQUESTRAW._serialized_end=7777
+  _SIGNEDLICENSEREQUESTRAW_MESSAGETYPE._serialized_start=7009
+  _SIGNEDLICENSEREQUESTRAW_MESSAGETYPE._serialized_end=7134
+  _SIGNEDLICENSE._serialized_start=7780
+  _SIGNEDLICENSE._serialized_end=8073
+  _SIGNEDLICENSE_MESSAGETYPE._serialized_start=7009
+  _SIGNEDLICENSE_MESSAGETYPE._serialized_end=7134
+  _SIGNEDSERVICECERTIFICATE._serialized_start=8076
+  _SIGNEDSERVICECERTIFICATE._serialized_end=8407
+  _SIGNEDSERVICECERTIFICATE_MESSAGETYPE._serialized_start=7009
+  _SIGNEDSERVICECERTIFICATE_MESSAGETYPE._serialized_end=7134
+  _FILEHASHES._serialized_start=8410
+  _FILEHASHES._serialized_end=8591
+  _FILEHASHES_SIGNATURE._serialized_start=8483
+  _FILEHASHES_SIGNATURE._serialized_end=8591
 # @@protoc_insertion_point(module_scope)
