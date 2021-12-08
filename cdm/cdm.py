@@ -3,10 +3,10 @@ import base64
 import os
 import time
 import binascii
-
+import base64
 from google.protobuf.message import DecodeError
 from google.protobuf import text_format
-
+import hashlib
 from cdm.formats import wv_proto2_pb2 as wv_proto2
 from cdm.session import Session
 from cdm.key import Key
@@ -18,8 +18,7 @@ from Cryptodome.PublicKey import RSA
 from Cryptodome.Signature import pss
 from Cryptodome.Util import Padding
 import logging
-import hashlib
-logging.basicConfig(level=logging.DEBUG)
+
 class Cdm:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -137,8 +136,7 @@ class Cdm:
         if session_id not in self.sessions:
             self.logger.error("session ID does not exist")
             return 1
-        global sessionIdTest
-        sessionIdTest = session_id
+
         session = self.sessions[session_id]
 
         # raw pssh will be treated as bytes and not parsed
@@ -176,7 +174,6 @@ class Cdm:
         license_request.Msg.Type = wv_proto2.LicenseRequest.RequestType.Value('NEW')
         license_request.Msg.RequestTime = int(time.time())
         license_request.Msg.ProtocolVersion = wv_proto2.ProtocolVersion.Value('CURRENT')
-
         if session.device_config.send_key_control_nonce:
             license_request.Msg.KeyControlNonce = random.randrange(1, 2**31)
 
@@ -231,28 +228,18 @@ class Cdm:
         self.logger.debug("signing license request")
 
         hash = SHA1.new(license_request.Msg.SerializeToString())
+        print()
+    
         signature = pss.new(key).sign(hash)
-        
-        # added to meet the requirements of kinopoisk's proxy
-        # license_request.Msg.puid = '339572866'
-        # license_request.Msg.watchSessionId = session_id
-        # license_request.Msg.contentId = '4315082489d87677b21f7c83593fcb73'
-        # license_request.Msg.contentTypeId = '21'
-        # license_request.Msg.serviceName = "ott-kp"
-        # license_request.Msg.productId = '2'
-        # license_request.Msg.monetizationModel = "SVOD"
-        # license_request.Msg.expirationTimestamp = '1638858156'
-        # license_request.Msg.verificationRequired = "true"
-        # license_request.Msg.signature = str(hash.hexdigest())
-        # license_request.Msg.version = "V4"
 
-        # license_request.Signature = signature
         global hash_object
         global hash2test 
-        hash2test  = hash
-        hash_object = hash.hexdigest()
+        m = hashlib.sha1()
+        m.update(signature)
+        # hash2test  = m.digest()
+        hash_object = m.hexdigest()
+
         license_request.Signature = signature
-        print(f'{chr(10)} hash_object^ {hash.hexdigest()}')
 
         session.license_request = license_request
 
@@ -261,7 +248,6 @@ class Cdm:
             self.logger.debug(line)
         self.logger.info("license request created")
         self.logger.debug("license request b64: {}".format(base64.b64encode(license_request.SerializeToString())))
-        print(f'{chr(10)} license_request^ {base64.b64encode(license_request.SerializeToString())}')
         return license_request.SerializeToString()
 
     def provide_license(self, session_id, license_b64):
