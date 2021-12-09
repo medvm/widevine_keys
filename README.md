@@ -1,6 +1,10 @@
 Not working yet.
-Need to figure out how wv_proto2_pb2.py works, then change the mechanism for generating a license request.
-It looks like wv_proto2.proto contains description of this mechanism.
+It is necessary to find out how the POST request is signed (the signature field in the request payload). 
+It looks like a simple hash of sha1, but from the looks of it, this is not it, but the Amazon's AWS Signature Version 4. Or I am doing something wrong and everything is much easier...
+Any ideas are appreciated, write to issues.
+
+[Parsed payload of license request](https://user-images.githubusercontent.com/43696206/145263764-349dd8be-58ec-4d42-9524-4a098b0fe5e3.png)
+
 <h3>First run: </h3>
 Copy headers and cookies of POST license request from browser to headers.py and cookies.py respectively like dictionaries.  
 </br>
