@@ -228,7 +228,6 @@ class Cdm:
         self.logger.debug("signing license request")
 
         hash = SHA1.new(license_request.Msg.SerializeToString())
-        print()
     
         signature = pss.new(key).sign(hash)
 
