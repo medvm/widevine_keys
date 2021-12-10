@@ -1,7 +1,7 @@
 Works only if the site does not require specific json-formatted data in the license request. 
 If you want to add support for your site, write to issues specifying the required json-formatted fields and the algorithm for their formation (if not static).
 
-Further about kinonpoisk (hello to compatriots):
+Further about kinonpoisk (hello to compatriots):</br>
 Not working yet.
 It is necessary to find out how the POST request is signed (the signature field in the request payload). 
 It looks like a simple hash of sha1, but from the looks of it, this is not it, but the Amazon's AWS Signature Version 4. Or I am doing something wrong and everything is much easier...
