@@ -1,5 +1,5 @@
 Works only if the site does not require specific json-formatted data in the license request. 
-If you want to add support for your site, write to issues specifying the required json-formatted fields and the algorithm for their formation (if not static).
+And if it requires and you want to add its support, write to issues specifying the required json-formatted fields and the algorithm for their formation (if not static).
 
 Further about kinonpoisk (hello to compatriots):</br>
 Not working yet.
