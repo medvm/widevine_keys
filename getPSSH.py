@@ -2,8 +2,12 @@ import requests, xmltodict, json
 
 def get_pssh(mpd_url):
     pssh = ''
-    r = requests.get(url=mpd_url)
-    r.raise_for_status()
+    try:
+        r = requests.get(url=mpd_url)
+        r.raise_for_status()
+    except requests.exceptions.HTTPError:
+        pssh = input('Unable to find PSSH in mpd. Edit getPSSH.py or enter PSSH manually: ')
+        return pssh
     xml = xmltodict.parse(r.text)
     mpd = json.loads(json.dumps(xml))
     periods = mpd['MPD']['Period']

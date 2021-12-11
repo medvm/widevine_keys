@@ -45,6 +45,9 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 		"rawLicenseRequestBase64": str(request, "utf-8" ), 
 		}))
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
+		data=f'token={headers.token}&provider={headers.provider}&payload={str(request, "utf-8" )}'
+		))
+	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
 		"rawLicenseRequestBase64": str(request, "utf-8" ), 
 		}))
@@ -64,7 +67,7 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			# "signature":'b6ca3161c8bd38105e87770458aee16191214cfa', That is fucking amazon aws signing protocol!! V4!!
 			"version":				'V4'
 			}))
-
+	# print(f'token={headers.token}&provider={headers.provider}&payload={str(request, "utf-8" )}')
 	for idx, response in enumerate(responses):
 		try:
 			str(response.content, "utf-8")
@@ -73,15 +76,24 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			print(f'{chr(10)}license response status: {widevine_license}{chr(10)}')
 			break	
 		if idx == len(responses) - 1:
-			widevine_license = response
-			print(f'{chr(10)}license response status: {widevine_license}')
-			print(f'server reports: {str(widevine_license.content, "utf-8")}')
-			print(f'server did not issue license, make sure you have correctly pasted all the required headers in the headers.py. Also check json params in POST request.{chr(10)}')	
+			print(f'{chr(10)}license response status: {response}')
+			print(f'server reports: {str(response.content, "utf-8")}')
+			print(f'server did not issue license, make sure you have correctly pasted all the required headers in the headers.py. Also check json/raw params of POST request.{chr(10)}')
+			exit() 	
+		else:
+			if len(str(response.content, "utf-8")) > 500:
+				widevine_license = response
+				print(f'{chr(10)}license response status: {widevine_license}{chr(10)}')
 	
+	lic_field_names = ['license', 'payload']
 	try: 
 		license_b64 = b64encode(widevine_license.content)
 	except TypeError:
-		license_b64 = json.loads(widevine_license.content.decode())['license']
+			for key in lic_field_names:
+				try: 
+					license_b64 = json.loads(widevine_license.content.decode())[key]
+				except KeyError:
+					pass	
 
 	wvdecrypt.update_license(license_b64)
 	Correct, keyswvdecrypt = wvdecrypt.start_process()
