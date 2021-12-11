@@ -16,7 +16,7 @@ And if it requires and you want to add its support, write to issues specifying t
    ![Normal work](https://user-images.githubusercontent.com/43696206/145641480-bf3a07a6-2d6e-4dee-9398-b4ecdf8bf273.png) </br>
 2. Server did not issue a license, as it requires additional json-formatted data: 
   ![error_teapot](https://user-images.githubusercontent.com/43696206/145643061-8e44b226-a3c2-4c44-8c62-6db84e582d9e.png)</br>
-3. If "Unable to find PSSH in mpd" - write about this error to issues attaching a link to mpd.</br>
+3. If "Unable to find PSSH in mpd" - use [this tool](https://tools.axinom.com/generators/PsshBox) to get it manually or write to issues attaching a link to mpd</br>
 
 Further about kinopoisk (hello to compatriots):</br>
 Not working yet.
