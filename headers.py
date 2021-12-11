@@ -1,21 +1,19 @@
 import requests
 
 headers = {
-    'authority': 'cms.35mm.online',
-    'pragma': 'no-cache',
-    'cache-control': 'no-cache',
-    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
-    'dnt': '1',
-    'sec-ch-ua-mobile': '?0',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36',
-    'sec-ch-ua-platform': '"Windows"',
-    'accept': '*/*',
-    'origin': 'https://35mm.online',
-    'sec-fetch-site': 'same-site',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-dest': 'empty',
-    'referer': 'https://35mm.online/',
-    'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,id;q=0.6,de;q=0.5,zh-TW;q=0.4,zh-CN;q=0.3,zh;q=0.2,uk;q=0.1',
+    'User-Agent': 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
+    'Accept': '*/*',
+    'Accept-Language': 'en-IE,en;q=0.7,en-US;q=0.3',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'content-type': 'text/plain;charset=UTF-8',
+    'Origin': 'https://www.rte.ie',
+    'DNT': '1',
+    'Connection': 'keep-alive',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'cross-site',
+    'Pragma': 'no-cache',
+    'Cache-Control': 'no-cache',
 }
 
 params = (

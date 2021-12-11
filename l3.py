@@ -23,7 +23,7 @@ lic_url = input('License URL: ')
 responses = []
 pssh = get_pssh(MDP_URL)
 params = None
-params = urlparse(lic_url).params
+params = urlparse(lic_url).query
 # pssh = 'AAAAXHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAADwIARIQ7iYSc3cNGm7XKPe3hSn3MhoIdXNwLWNlbmMiGDdpWVNjM2NOR203WEtQZTNoU24zTWc9PSoAMgA='
 # params from mdp_url:
 # ottsession=5945048d6f844d1699054cc5d44548f1&
@@ -49,8 +49,12 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 		))
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
-		"rawLicenseRequestBase64": str(request, "utf-8" ), 
-		}))
+		"getWidevineLicense": 
+			{
+			'releasePid': "_qVpiY31v_oU",
+			'widevineChallenge': str(request, "utf-8" )
+			}, 
+			}))
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 			json={
 			"rawLicenseRequestBase64": str(request, "utf-8" ), 
@@ -75,26 +79,35 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			widevine_license = response
 			print(f'{chr(10)}license response status: {widevine_license}{chr(10)}')
 			break	
+		else:
+			if len(str(response.content, "utf-8")) > 500:
+				widevine_license = response
+				print(f'{chr(10)}license response status: {widevine_license}{chr(10)}')
+				break
 		if idx == len(responses) - 1:
 			print(f'{chr(10)}license response status: {response}')
 			print(f'server reports: {str(response.content, "utf-8")}')
 			print(f'server did not issue license, make sure you have correctly pasted all the required headers in the headers.py. Also check json/raw params of POST request.{chr(10)}')
 			exit() 	
-		else:
-			if len(str(response.content, "utf-8")) > 500:
-				widevine_license = response
-				print(f'{chr(10)}license response status: {widevine_license}{chr(10)}')
-	
-	lic_field_names = ['license', 'payload']
+		
+	lic_field_names = ['license', 'payload', 'getWidevineLicenseResponse']
+	lic_field_names2 = ['license']
 	try: 
 		license_b64 = b64encode(widevine_license.content)
+		if widevine_license.content.find('{'):
+			raise TypeError
 	except TypeError:
 			for key in lic_field_names:
 				try: 
 					license_b64 = json.loads(widevine_license.content.decode())[key]
 				except KeyError:
-					pass	
-
+					pass
+				else:
+					for key2 in lic_field_names2:
+						try: 
+							license_b64 = json.loads(widevine_license.content.decode())[key][key2]
+						except KeyError:
+							pass	
 	wvdecrypt.update_license(license_b64)
 	Correct, keyswvdecrypt = wvdecrypt.start_process()
 	if Correct:
