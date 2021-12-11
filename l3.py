@@ -56,7 +56,7 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 		json={
 		"getWidevineLicense": 
 			{
-			'releasePid': "_qVpiY31v_oU",
+			'releasePid': headers.releasePid,
 			'widevineChallenge': str(request, "utf-8" )
 			}, 
 			}))
