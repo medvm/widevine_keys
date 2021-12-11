@@ -5,12 +5,12 @@ def get_pssh(mpd_url):
     try:
         r = requests.get(url=mpd_url)
         r.raise_for_status()
-    except requests.exceptions.HTTPError:
-        pssh = input('Unable to find PSSH in mpd. Edit getPSSH.py or enter PSSH manually: ')
+        xml = xmltodict.parse(r.text)
+        mpd = json.loads(json.dumps(xml))
+        periods = mpd['MPD']['Period']
+    except Exception as e:
+        pssh = input(f'\nUnable to find PSSH in MPD: {e}. \nEdit getPSSH.py or enter PSSH manually: ')
         return pssh
-    xml = xmltodict.parse(r.text)
-    mpd = json.loads(json.dumps(xml))
-    periods = mpd['MPD']['Period']
     if isinstance(periods, list):
         for idx, period in enumerate(periods):
             if isinstance(period['AdaptationSet'], list):
