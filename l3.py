@@ -76,7 +76,7 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			widevine_license = response
 			print(f'{chr(10)}license response status: {widevine_license}')
 			print(f'server reports: {str(widevine_license.content, "utf-8")}')
-			print(f'server did not issue license, check json params in POST request.{chr(10)}')	
+			print(f'server did not issue license, make sure you have correctly pasted all the required headers in the headers.py. Also check json params in POST request.{chr(10)}')	
 	
 	try: 
 		license_b64 = b64encode(widevine_license.content)
