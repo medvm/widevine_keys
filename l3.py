@@ -47,6 +47,10 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		data=f'token={headers.token}&provider={headers.provider}&payload={str(request, "utf-8" )}'
 		))
+	headers.headers['licenseRequest'] = str(request, "utf-8" )
+	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params,
+		))
+	del headers.headers['licenseRequest']
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
 		"getWidevineLicense": 
