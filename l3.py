@@ -36,9 +36,10 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 	"""main func, emulates license request and then decrypt obtained license
 	fileds that changes every new request is signature, expirationTimestamp, watchSessionId, puid, and rawLicenseRequestBase64 """
 	wvdecrypt = WvDecrypt(init_data_b64=pssh, cert_data_b64=cert_b64, device=deviceconfig.device_android_generic)                   
-	request = b64encode(wvdecrypt.get_challenge())
+	raw_request = wvdecrypt.get_challenge()
+	request = b64encode(raw_request)
 	signature = cdm.hash_object
-	responses.append(requests.post(url=lic_url, headers=headers.headers, data=wvdecrypt.get_challenge(), params=params))
+	responses.append(requests.post(url=lic_url, headers=headers.headers, data=raw_request, params=params))
 
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
