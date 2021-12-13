@@ -105,23 +105,23 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 	open('license_content.bin', 'wb').write(widevine_license.content)
 
 	try:
-		if widevine_license.content.find(':'):
+		if str(widevine_license.content, 'utf-8').find(':'):
 			for key in lic_field_names:
 				try: 
 					license_b64 = json.loads(widevine_license.content.decode())[key]
-				except KeyError:
+				except:
 					pass			
 				else:
 					for key2 in lic_field_names2:
 						try: 
 							license_b64 = json.loads(widevine_license.content.decode())[key][key2]
-						except KeyError:
+						except:
 							pass
 		else:
 			license_b64 = widevine_license.content								
 	except TypeError:
 		license_b64 = b64encode(widevine_license.content)
-	
+
 	wvdecrypt.update_license(license_b64)
 	Correct, keyswvdecrypt = wvdecrypt.start_process()
 	if Correct:
