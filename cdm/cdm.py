@@ -177,6 +177,8 @@ class Cdm:
         if session.device_config.send_key_control_nonce:
             license_request.Msg.KeyControlNonce = random.randrange(1, 2**31)
 
+        # wv_proto2.WidevineCencHeader().provider = 'conax'   
+        
         if session.privacy_mode:
             if session.device_config.vmp:
                 self.logger.debug("vmp required, adding to client_id")
