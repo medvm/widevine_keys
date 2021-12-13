@@ -119,7 +119,7 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 							pass
 		else:
 			license_b64 = widevine_license.content								
-	except TypeError:
+	except:
 		license_b64 = b64encode(widevine_license.content)
 
 	wvdecrypt.update_license(license_b64)
