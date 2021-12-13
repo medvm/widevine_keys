@@ -21,6 +21,7 @@ lic_url = input('License URL: ')
 # hardcoded for kinopoisk.ru
 # lic_url = 'https://widevine-proxy.ott.yandex.ru/proxy'
 responses = []
+license_b64 = ''
 pssh = get_pssh(MDP_URL)
 params = None
 params = urlparse(lic_url).query
@@ -39,19 +40,23 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 	raw_request = wvdecrypt.get_challenge()
 	request = b64encode(raw_request)
 	signature = cdm.hash_object
+# basic, mostly sites works
 	responses.append(requests.post(url=lic_url, headers=headers.headers, data=raw_request, params=params))
-
+# some another sites support
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
 		"rawLicenseRequestBase64": str(request, "utf-8" ), 
 		}))
+# kakaotv support
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		data=f'token={headers.token}&provider={headers.provider}&payload={str(request, "utf-8" )}'
 		))
+# xfinity.com support
 	headers.headers['licenseRequest'] = str(request, "utf-8" )
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params,
 		))
 	del headers.headers['licenseRequest']
+# rte.ie support
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 		json={
 		"getWidevineLicense": 
@@ -60,6 +65,7 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			'widevineChallenge': str(request, "utf-8" )
 			}, 
 			}))
+# kinopoisk support
 	responses.append(requests.post(url=lic_url, headers=headers.headers, params=params, 
 			json={
 			"rawLicenseRequestBase64": str(request, "utf-8" ), 
@@ -73,10 +79,8 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 			"expirationTimestamp": 	'1639009453',
 			"verificationRequired": 'false',
 			"signature": 			str(signature), 
-			# "signature":'b6ca3161c8bd38105e87770458aee16191214cfa', That is fucking amazon aws signing protocol!! V4!!
 			"version":				'V4'
 			}))
-	# print(f'token={headers.token}&provider={headers.provider}&payload={str(request, "utf-8" )}')
 	for idx, response in enumerate(responses):
 		try:
 			str(response.content, "utf-8")
@@ -97,22 +101,27 @@ def WV_Function(pssh, lic_url, cert_b64=None):
 		
 	lic_field_names = ['license', 'payload', 'getWidevineLicenseResponse']
 	lic_field_names2 = ['license']
-	try: 
-		license_b64 = b64encode(widevine_license.content)
-		if widevine_license.content.find('{'):
-			raise TypeError
-	except TypeError:
+	
+	open('license_content.bin', 'wb').write(widevine_license.content)
+
+	try:
+		if widevine_license.content.find(':'):
 			for key in lic_field_names:
 				try: 
 					license_b64 = json.loads(widevine_license.content.decode())[key]
 				except KeyError:
-					pass
+					pass			
 				else:
 					for key2 in lic_field_names2:
 						try: 
 							license_b64 = json.loads(widevine_license.content.decode())[key][key2]
 						except KeyError:
-							pass	
+							pass
+		else:
+			license_b64 = widevine_license.content								
+	except TypeError:
+		license_b64 = b64encode(widevine_license.content)
+	
 	wvdecrypt.update_license(license_b64)
 	Correct, keyswvdecrypt = wvdecrypt.start_process()
 	if Correct:
