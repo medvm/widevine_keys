@@ -1,5 +1,5 @@
 <h2>Important info</h2>
-From December 14, 2021, CDM android_generic_4464 is gradually ceasing to work on most major VODs. Accordingly, since the script is based on this CDM, from this day on without replacing the CDM with the "non-leaked" one it will not work. How to fix this can be found in Google (if you need help with this - write to [my Telegram](https://t.me/medvm) ).
+From December 14, 2021, CDM android_generic_4464 is gradually ceasing to work on most major VODs. Accordingly, since the script is based on this CDM, from this day on without replacing the CDM with the "non-leaked" one it will not work. How to fix this can be found in Google (if you need help with this - write to https://t.me/medvm).
 
 <h3>First run: </h3>
 
