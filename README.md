@@ -1,3 +1,6 @@
+<h2>Important info</h2>
+From December 14, 2021, CDM android_generic_4464 is gradually ceasing to work on most major VODs. Accordingly, since the script is based on this CDM, from this day on without replacing the CDM with the "non-leaked" one it will not work. How to fix this can be found in Google (if you need help with this - write to https://t.me/medvm).
+
 <h3>First run: </h3>
 
 [Copy headers ](https://user-images.githubusercontent.com/43696206/145660715-472e4c65-86de-453f-86fc-5bb14028f448.png)(with cookies) of POST license request from browser to headers.py like dictionary.</br>
@@ -17,12 +20,3 @@ And if it requires and you want to add its support, write to issues specifying t
 2. Server did not issue a license, as it requires additional json-formatted data: 
   ![error_teapot](https://user-images.githubusercontent.com/43696206/145643061-8e44b226-a3c2-4c44-8c62-6db84e582d9e.png)</br>
 3. If "Unable to find PSSH in mpd" - use [this tool](https://tools.axinom.com/generators/PsshBox) to get it manually or write to issues attaching a link to mpd</br>
-
-Further about kinopoisk (hello to compatriots):</br>
-Not working yet.
-It is necessary to find out how the POST request is signed (the signature field in the request payload). 
-It looks like a simple hash of sha1, but from the looks of it, this is not it, but the Amazon's AWS Signature Version 4. Or I am doing something wrong and everything is much easier...
-Any ideas are appreciated, write to issues.
-
-[Parsed payload of license request](https://user-images.githubusercontent.com/43696206/145263764-349dd8be-58ec-4d42-9524-4a098b0fe5e3.png)
-
