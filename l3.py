@@ -16,17 +16,17 @@ from cdm.formats import wv_proto2_pb2 as wv_proto2
 from urllib.parse import urlparse
 import logging
 # logging.basicConfig(level=logging.DEBUG)
-MDP_URL = input('\nInput MPD URL: ')
+MPD_URL = input('\nInput MPD URL: ')
 lic_url = input('License URL: ')
 # hardcoded for kinopoisk.ru
 # lic_url = 'https://widevine-proxy.ott.yandex.ru/proxy'
 responses = []
 license_b64 = ''
-pssh = get_pssh(MDP_URL)
+pssh = get_pssh(MPD_URL)
 params = None
 params = urlparse(lic_url).query
 # pssh = 'AAAAXHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAADwIARIQ7iYSc3cNGm7XKPe3hSn3MhoIdXNwLWNlbmMiGDdpWVNjM2NOR203WEtQZTNoU24zTWc9PSoAMgA='
-# params from mdp_url:
+# params from mpd_url:
 # ottsession=5945048d6f844d1699054cc5d44548f1&
 # puid=339572866&
 # video_content_id=4315082489d87677b21f7c83593fcb73&
