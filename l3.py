@@ -15,9 +15,19 @@ from wvdecryptcustom import WvDecrypt
 from cdm.formats import wv_proto2_pb2 as wv_proto2
 from urllib.parse import urlparse
 import logging
+import uncurl
+import sys
 # logging.basicConfig(level=logging.DEBUG)
-MDP_URL = input('\nInput MPD URL: ')
-lic_url = input('License URL: ')
+MDP_URL = sys.argv[1]
+print("MDP connection successful\n", MDP_URL)
+lic_url = sys.argv[2]
+License_headers = requests.head(lic_url).headers
+lic_headers = requests.head(lic_url).headers
+print("\nLicense connection successful...\n", lic_url)
+
+#replace headers
+headers.headers.update(lic_headers)
+
 # hardcoded for kinopoisk.ru
 # lic_url = 'https://widevine-proxy.ott.yandex.ru/proxy'
 responses = []
