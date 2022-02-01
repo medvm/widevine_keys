@@ -1,4 +1,24 @@
+from bs4 import BeautifulSoup
 import requests, xmltodict, json
+
+def __strip_duplicates__(x):
+  return list(dict.fromkeys(x))
+
+def __get_pssh_generic__(mpd_url):
+    page = requests.get(mpd_url)
+    soup = BeautifulSoup(page.text)
+    pssh = soup.findAll("cenc:pssh")
+    pssh_index = []
+    for item in pssh:
+        pssh_index.append(item.getText())
+    pssh_list = __strip_duplicates__(pssh_index)
+    #Display PSSH options
+    option_count = 0
+    for item in pssh_list:
+        print("Option #[" + str(option_count) + "]\n" + item + "\n\n")
+        option_count += 1
+    select = input("Select Option:")
+    return pssh_list[int(select)]
 
 def get_pssh(mpd_url):
     pssh = ''
@@ -43,5 +63,8 @@ def get_pssh(mpd_url):
     except Exception:
         pass                      
     if pssh == '':
-        pssh = input('Unable to find PSSH in mpd. Edit getPSSH.py or enter PSSH manually: ')
+        try:
+            return __get_pssh_generic__(mpd_url)
+        except:
+            pssh = input('Unable to find PSSH in mpd. Edit getPSSH.py or enter PSSH manually: ')
     return pssh
