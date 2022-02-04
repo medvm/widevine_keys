@@ -18,9 +18,14 @@ import logging
 import uncurl
 import sys
 # logging.basicConfig(level=logging.DEBUG)
-MDP_URL = sys.argv[1]
-print("MDP connection successful\n", MDP_URL)
-lic_url = sys.argv[2]
+try:
+    MDP_URL = sys.argv[1]
+    print("MDP connection successful\n", MDP_URL)
+    lic_url = sys.argv[2]
+except:
+    MDP_URL = input('\nInput MPD URL: ')
+    lic_url = input('\nInput License URL: ')
+	
 License_headers = requests.head(lic_url).headers
 lic_headers = requests.head(lic_url).headers
 print("\nLicense connection successful...\n", lic_url)
