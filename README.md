@@ -1,5 +1,6 @@
 <h2>Important info</h2>
-From December 14, 2021, CDM android_generic_4464 is gradually ceasing to work on most major VODs. Accordingly, since the script is based on this CDM, from this day on without replacing the CDM with the "non-leaked" one it will not work. How to fix this can be found in Google (with the proper level of knowledge what to look for, of course).
+From December 14, 2021, CDM android_generic_4464 is gradually ceasing to work on most major VODs. Accordingly, since the script is based on this CDM, from this day on without replacing the CDM with the "non-leaked" one it will not work. How to fix this can be found in Google (with the proper level of knowledge what to look for, of course). </br> 
+If you need script modification for some specific service, you can always contact me [here](https://t.me/medvm).  Since paypal doesn't work here anymore, I use Tether TRC20 wallet.
 
 <h3>First run: </h3>
 
@@ -13,7 +14,7 @@ License URL: https://cms.35mm.online/umbraco/api/products/473/drm/widevine?platf
 ```
 
 Works only if the site does not require specific json-formatted data in the license request. 
-And if it requires and you want to add its support, write to issues specifying the required json-formatted fields and the algorithm for their formation (if not static).
+And if it requires and you want to add its support, contact me [here](https://t.me/medvm) and we'll figure something out. Nothing is unhackable.
 </br> Examples:</br>
 1.  Normal work: </br>
    ![Normal work](https://user-images.githubusercontent.com/43696206/145641480-bf3a07a6-2d6e-4dee-9398-b4ecdf8bf273.png) </br>
